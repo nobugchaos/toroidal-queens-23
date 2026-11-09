@@ -1,0 +1,31 @@
+Third-round source check,2026-11-08
+
+Consulted again:
+https://oeis.org/A279404
+The search-index/main-page table still lists entries through21. This is only
+a table-coverage observation, not proof that23 is historically unresolved.
+
+https://ajc.maths.uq.edu.au/pdf/24/ocr-ajc-v24-p231.pdf
+Opened full16-page text again. Used for the established toroidal graph and
+domination context. No numerical value for23 was inferred from its abstract.
+
+https://pldml.icm.edu.pl/pldml/element/bwmeta1.element.bwnjournal-article-doi-10_7151_dmgt_1193/c/dmgt.1193.pdf
+Full-text open again returned403. Search provides title, author, abstract and
+bibliography; full historical comparison remains incomplete. The manuscript
+explicitly discloses this and makes no priority or new-record claim.
+
+Searches for toroidal queens,23,independent domination also returned ordinary
+chessboard results. These were not used to transfer any bound to the torus.
+
+Runtime / mathlib provenance:
+Lean4.34.0 is the actual compiled toolchain. The local dependency source was
+compared byte for byte to fixed archived upstream sources; zero differences.
+See dependency-audit.json and the copied dependency source-lock in the bundle.
+
+PDF typesetting tool source:
+https://github.com/tectonic-typesetting/tectonic/releases/tag/tectonic%400.15.0
+The official release describes the0.15.0 Windows tool used for the attempted
+local LaTeX compilation. Download/compilation status is recorded separately;
+tool availability is not a mathematical premise.
+
+2026-11-08 follow-up literature/document audit: the complete 2003 paper was obtained and compared; its main constructions apply to orders2m or3m and Table2 ends at16. No determination of order23 appears there. Current Lean import/source/bundle recheck passed with unchanged native axioms; no new exhaustive computation. The manuscript literature paragraph is updated, without a priority claim. See literature-check/2026-11-08/REPORT.txt and conclusions.json. Previous draft artifacts are preserved.

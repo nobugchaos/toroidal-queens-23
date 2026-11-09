@@ -1,0 +1,3 @@
+ℹ [1175/1175] Built ToroidalQueens23.Upper (24s)
+info: ToroidalQueens23/Upper.lean:26:0: 'ToroidalQueens23.twelve_suffice' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (1175 jobs).

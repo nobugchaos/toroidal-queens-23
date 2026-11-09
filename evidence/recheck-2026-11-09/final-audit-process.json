@@ -1,0 +1,26 @@
+[
+  {
+    "step": "semantic-audit-final",
+    "returncode": 0,
+    "seconds": 64.47,
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-o",
+      ".lake/build/lib/lean/SemanticAudit.olean",
+      "SemanticAudit.lean"
+    ]
+  },
+  {
+    "step": "kernel-replay",
+    "returncode": 0,
+    "seconds": 599.471,
+    "command": [
+      "lake",
+      "env",
+      "python",
+      "../kernel_replay_sequential.py"
+    ]
+  }
+]

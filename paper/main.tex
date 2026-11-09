@@ -1,0 +1,596 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=28mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\usepackage{listings}
+\setlength{\emergencystretch}{2em}
+\setlength{\tabcolsep}{5pt}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,
+  keepspaces=true,frame=single,rulecolor=\color{black!20},xleftmargin=2mm,xrightmargin=2mm}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\F}{\mathbb F_{23}}
+\newcommand{\Qt}{Q_{23}^{\mathrm t}}
+\newcommand{\coeff}[2]{[#1]#2}
+\newcommand{\card}[1]{\lvert#1\rvert}
+\DeclareMathOperator{\ev}{ev}
+\title{The independent domination number of the\texorpdfstring{\\}{ }23 by 23 toroidal queens graph:\texorpdfstring{\\}{ }a computer-assisted proof and Lean formalization}
+\author{Weixin Yu\\Independent Researcher\\\href{mailto:iweixin1214@gmail.com}{\texttt{iweixin1214@gmail.com}}}
+\date{November 8, 2026}
+\hypersetup{pdftitle={The independent domination number of the 23 by 23 toroidal queens graph},
+  pdfauthor={Weixin Yu},pdfsubject={A computer-assisted proof and Lean formalization}}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+We give a reproducible computer-assisted proof that the independent domination
+number of the $23\times23$ toroidal queens graph is $12$. A displayed set of
+twelve queens gives the upper bound. For the lower bound, a finite-field
+coefficient-extraction argument first excludes dominating sets with at most ten
+queens. For eleven independent queens, translation to zero coordinate sums and
+seven coefficients of a degree-$44$ covering polynomial impose restrictions on
+the first three coefficients of four root polynomials. These restrictions reduce
+the remaining obstruction to candidate lists containing $2774$ masks and a
+finite check of $40\,620\,104$ triples. The entire implication from the chessboard
+definitions to the exact minimum is implemented in Lean~4 with mathlib.
+Three closed computations use \texttt{native\_decide}; the compiler and native
+evaluation trust required by those steps is explicitly recorded. Two earlier
+finite enumerations and checked LRAT refutations provide additional evidence,
+but are not hypotheses of the Lean theorem. This manuscript makes no priority
+claim for the numerical value and concerns this fixed board size only.
+\end{abstract}
+
+\noindent\textbf{Keywords:} toroidal queens graph; independent domination;
+finite fields; polynomial method; exhaustive computation; Lean.
+
+\section{Problem, result, and scope}
+The vertices of $\Qt$ are the pairs $(r,c)\in\F^2$. Distinct vertices
+$(r,c)$ and $(r',c')$ are adjacent when at least one of
+\[
+ r=r',\qquad c=c',\qquad r+c=r'+c',\qquad r-c=r'-c'
+\]
+holds in $\F$. A queen covers its own square and its adjacent vertices.
+A set is \emph{independent} if no two of its distinct queens attack each other;
+it is \emph{dominating} if every square is covered. The independent domination
+number $i(\Qt)$ is the minimum cardinality of a set with both properties.
+
+\begin{theorem}\label{thm:main}
+The independent domination number of the $23\times23$ toroidal queens graph is
+\[
+ i(\Qt)=12.
+\]
+\end{theorem}
+
+Toroidal queens graphs and their domination parameters were studied by
+Burger, Mynhardt, and Cockayne~\cite{BMC2001}, and upper bounds were developed by
+Mynhardt~\cite{Mynhardt2003}. OEIS sequence A279404 records the independent
+domination parameter~\cite{OEIS}. The full text of~\cite{Mynhardt2003} was
+checked: its main constructions concern orders divisible by $2$ or $3$, and
+Table~2 on page~166 lists independent domination values through order $16$.
+It does not determine the value at order $23$. The OEIS page obtained in this
+check lists values through order $21$, with linked 2026 contributions for
+orders $19$ and $20$. A bounded literature search on November~8, 2026 did not
+locate an earlier proof of the exact value at order $23$. This is not an
+exhaustive determination of priority, and no priority claim is made.
+
+The proof has three parts. Section~\ref{sec:small} excludes ten or fewer queens
+without assuming independence. Sections~\ref{sec:eleven}--\ref{sec:finite}
+exclude eleven independent queens using algebra followed by finite computation.
+Section~\ref{sec:upper} gives the twelve-queen construction.
+Section~\ref{sec:lean} describes the formal statements and their precise trust
+boundary. The result makes no assertion about an arbitrary board size $n$.
+
+\section{A coefficient-extraction lemma}\label{sec:grid}
+All coefficients and evaluations in this section lie in $\F$. For $n\geq0$,
+put $\sigma_n=\sum_{t\in\F}t^n$, with the usual polynomial convention $t^0=1$.
+Then
+\begin{equation}\label{eq:powersums}
+ \sigma_n=
+ \begin{cases}
+ -1,&n>0\text{ and }22\mid n,\\
+ 0,&\text{otherwise}.
+ \end{cases}
+\end{equation}
+For $n=0$ this is $23=0$ in $\F$; for positive $n$, it follows by summing
+powers in the cyclic multiplicative group of order $22$.
+
+\begin{lemma}\label{lem:grid}
+Let $P\in\F[x,y]$ have total degree at most $44$, and suppose that
+$P(x,y)=0$ for every $(x,y)\in\F^2$. If $0\leq a,b\leq22$ and $a+b>22$, then
+$\coeff{x^ay^b}{P}=0$.
+\end{lemma}
+\begin{proof}
+Consider the linear functional
+\[
+ \Lambda_{a,b}(P)=\sum_{x\in\F}\sum_{y\in\F}
+       x^{22-a}y^{22-b}P(x,y).
+\]
+On a monomial $x^iy^j$ its value is
+$\sigma_{22-a+i}\sigma_{22-b+j}$. If this value is nonzero, both subscripts
+are positive multiples of $22$. Thus $i=a+22u$ and $j=b+22v$ for integers
+$u,v\geq0$. Since $i+j\leq44$ and $a+b>22$, we have $u=v=0$.
+For $(i,j)=(a,b)$ the value is $(-1)^2=1$.
+Consequently $\Lambda_{a,b}(P)=\coeff{x^ay^b}{P}$.
+The assumed vanishing of $P$ makes the left side zero.
+\end{proof}
+
+For a finite set $Z\subseteq\F$, define its root polynomial by
+\[
+ L_Z(T)=\prod_{z\in Z}(T-z).
+\]
+For four sets $R,C,S,D\subseteq\F$, define the covering polynomial
+\begin{equation}\label{eq:cover}
+ P_{R,C,S,D}(x,y)=L_R(x)L_C(y)L_S(x+y)L_D(x-y).
+\end{equation}
+If $R,C,S,D$ contain, respectively, the row, column, sum-diagonal, and
+difference-diagonal labels of a dominating set of queens, then this polynomial
+vanishes on $\F^2$: a covering queen makes at least one of its four factors zero.
+
+\section{Excluding ten queens or fewer}\label{sec:small}
+\begin{proposition}\label{prop:ten}
+Every dominating set in $\Qt$, whether independent or not, has at least eleven
+queens.
+\end{proposition}
+\begin{proof}
+Suppose that a dominating set has at most ten queens. Each of its four
+projection sets has size at most ten. Enlarge each projection independently
+to a subset $R,C,S,D$ of $\F$ of size exactly ten; this is possible since
+$\card{\F}=23$. The polynomial in~\eqref{eq:cover} still vanishes on $\F^2$.
+It has total degree at most $40$, and its homogeneous part of degree $40$ is
+\[
+ x^{10}y^{10}(x+y)^{10}(x-y)^{10}
+   =x^{10}y^{10}(x^2-y^2)^{10}.
+\]
+All other terms have degree at most $39$. Hence
+\[
+ \coeff{x^{20}y^{20}}{P_{R,C,S,D}}
+   =(-1)^5\binom{10}{5}=-252=1\quad\text{in }\F.
+\]
+Lemma~\ref{lem:grid}, with $(a,b)=(20,20)$, says that the same coefficient
+must be zero. This contradiction proves the proposition.
+\end{proof}
+
+\section{Necessary conditions for eleven independent queens}\label{sec:eleven}
+Suppose for contradiction that $A\subseteq\F^2$ is independent and dominating
+and $\card A=11$. Write its elements as $(r_i,c_i)$, and put
+\[
+ R=\{r_i\},\quad C=\{c_i\},\quad S=\{r_i+c_i\},\quad D=\{r_i-c_i\}.
+\]
+Independence makes each of the four projection maps injective on $A$;
+therefore every one of these sets has size $11$.
+
+\subsection{Centering and root coefficients}
+Translate all queens by
+\[
+ \left(-11^{-1}\sum_i r_i,-11^{-1}\sum_i c_i\right).
+\]
+Here $11^{-1}=21$ in $\F$. Translation preserves cardinality, independence,
+and domination. We may therefore assume
+\begin{equation}\label{eq:center}
+ \sum_{r\in R}r=\sum_{c\in C}c=\sum_{s\in S}s=\sum_{d\in D}d=0.
+\end{equation}
+No queen is required to be at the origin after this translation.
+
+For each of the four sets $Z$, write
+\begin{equation}\label{eq:rootjet}
+ L_Z(T)=T^{11}+u_ZT^9+v_ZT^8+E_Z(T),\qquad\deg E_Z\leq7.
+\end{equation}
+The missing $T^{10}$ term follows from~\eqref{eq:center}.
+The coefficients can equivalently be read from
+\begin{equation}\label{eq:reverse}
+ B_Z(T)=\prod_{z\in Z}(1-zT):\qquad
+ u_Z=\coeff{T^2}{B_Z},\quad v_Z=\coeff{T^3}{B_Z}.
+\end{equation}
+The elementary coefficient identity
+\begin{equation}\label{eq:newton2}
+ 2\coeff{T^2}{B_Z}=\left(\sum_{z\in Z}z\right)^2-\sum_{z\in Z}z^2
+\end{equation}
+follows either by expanding the product or by induction when one root is
+inserted. Under~\eqref{eq:center}, it gives $2u_Z=-\sum_{z\in Z}z^2$.
+
+\subsection{Seven coefficients of the covering polynomial}
+The polynomial $P=P_{R,C,S,D}$ has degree at most $44$ and vanishes on the
+whole board. By Lemma~\ref{lem:grid}, its coefficients at
+\begin{equation}\label{eq:positions}
+ (22,20),(21,21),(20,22),\quad
+ (22,19),(21,20),(20,21),(19,22)
+\end{equation}
+are all zero.
+
+For $j\in\{2,3\}$, define the four homogeneous kernels
+\begin{align*}
+ K_{R,j}&=x^{11-j}y^{11}(x+y)^{11}(x-y)^{11},\\
+ K_{C,j}&=x^{11}y^{11-j}(x+y)^{11}(x-y)^{11},\\
+ K_{S,j}&=x^{11}y^{11}(x+y)^{11-j}(x-y)^{11},\\
+ K_{D,j}&=x^{11}y^{11}(x+y)^{11}(x-y)^{11-j}.
+\end{align*}
+The degree-$42$ part of $P$ is $\sum_Zu_ZK_{Z,2}$ and its degree-$41$ part is
+$\sum_Zv_ZK_{Z,3}$. Indeed, a single $u_Z$ term drops the degree by two,
+a single $v_Z$ term drops it by three, a tail term drops it by at least four,
+and two or more nonleading factors also drop it by at least four.
+Thus no cross term has been omitted in degrees $42$ and $41$.
+
+Straight binomial expansion gives the following coefficient matrices over $\F$.
+The column order in both cases is $R,C,S,D$.
+\begin{equation}\label{eq:matrix2}
+ \begin{array}{c|rrrr}
+  &R&C&S&D\\\hline
+  x^{22}y^{20}&0&0&1&22\\
+  x^{21}y^{21}&21&2&0&0\\
+  x^{20}y^{22}&0&0&22&1
+ \end{array}
+\end{equation}
+\begin{equation}\label{eq:matrix3}
+ \begin{array}{c|rrrr}
+  &R&C&S&D\\\hline
+  x^{22}y^{19}&8&0&17&17\\
+  x^{21}y^{20}&0&2&7&16\\
+  x^{20}y^{21}&21&0&16&16\\
+  x^{19}y^{22}&0&15&6&17
+ \end{array}
+\end{equation}
+These are exact polynomial calculations, not tests on sampled queen sets.
+The accompanying Lean files prove characteristic-free sparse expansions using
+\texttt{ring}, then extract and reduce the specified coefficients.
+
+The first two equations in~\eqref{eq:matrix2} give
+\begin{equation}\label{eq:u-equal}
+ u_R=u_C,\qquad u_S=u_D.
+\end{equation}
+The matrix in~\eqref{eq:matrix3} is invertible over $\F$. For example an inverse is
+\begin{equation}\label{eq:inverse3}
+ \begin{pmatrix}
+ 16&0&6&0\\
+ 0&17&0&7\\
+ 1&19&4&22\\
+ 1&4&4&1
+ \end{pmatrix}.
+\end{equation}
+Consequently
+\begin{equation}\label{eq:v-zero}
+ v_R=v_C=v_S=v_D=0.
+\end{equation}
+
+There is one further geometric identity. Injectivity of the projections and
+$(r+c)^2+(r-c)^2=2(r^2+c^2)$ imply
+\[
+ \sum_{s\in S}s^2+\sum_{d\in D}d^2
+   =2\left(\sum_{r\in R}r^2+\sum_{c\in C}c^2\right).
+\]
+Using~\eqref{eq:newton2} and~\eqref{eq:u-equal}, and cancelling the nonzero
+element $2$, gives
+\begin{equation}\label{eq:u-double}
+ u_S=u_D=2u_R=2u_C.
+\end{equation}
+In particular, all the conditions used below are necessary for an eleven-queen
+independent dominating set. We make no symmetry assumption about that set.
+
+\section{The finite obstruction}\label{sec:finite}
+For $b\in\F$, let $\mathcal P_b$ be the family of sets $Z\subseteq\F$ satisfying
+\begin{equation}\label{eq:profiles}
+ \card Z=11,\quad \sum_{z\in Z}z=0,\quad
+ \coeff{T^2}{B_Z}=b,\quad \coeff{T^3}{B_Z}=0.
+\end{equation}
+The preceding section gives $R,C\in\mathcal P_b$ and
+$S,D\in\mathcal P_{2b}$ for $b=u_R$.
+
+For any three sets of line labels, put
+\begin{equation}\label{eq:delta}
+ \Delta(R,C,S)=\{d\in\F:\exists r\in\F,
+       r\notin R,\ r-d\notin C,\ 2r-d\notin S\}.
+\end{equation}
+Equivalently these are the difference labels of squares left uncovered by the
+row, column, and sum-diagonal families. If the four line families cover the
+board, then
+\begin{equation}\label{eq:subset}
+ \Delta(R,C,S)\subseteq D.
+\end{equation}
+Indeed, for a witness $r$ in~\eqref{eq:delta}, the square $(r,r-d)$ has no
+covering row, column, or sum diagonal, so must be covered by difference label $d$.
+
+\begin{lemma}[finite computation]\label{lem:finite}
+For all $b\in\F$ and all $R,C\in\mathcal P_b$, $S\in\mathcal P_{2b}$,
+\[
+ \card{\Delta(R,C,S)}\geq12.
+\]
+\end{lemma}
+
+Here the finite computation is part of the proof. Its definition, exhaustive
+scope, and connection to the stated sets are described next.
+
+\subsection{Candidate lists and certified completeness}
+Encode $Z\subseteq\F$ as the natural number
+$m(Z)=\sum_{z\in Z}2^{\operatorname{val}(z)}$, where residues are represented
+by $0,\ldots,22$. The file \texttt{ProfileData.lean} contains $23$ explicit
+candidate lists $\mathcal L_b$.
+To prove that every profile is in the appropriate list, an executable Lean
+function scans \emph{every} mask $0\leq m<2^{23}=8\,388\,608$.
+
+For a partial product $\prod(1-zT)$, keep a state $(k,a,b,c)$ consisting of
+the number of roots and coefficients of $T,T^2,T^3$. Inserting a root $z$
+updates this state by
+\begin{equation}\label{eq:recurrence}
+ (k,a,b,c)\longmapsto(k+1,a-z,b-za,c-zb).
+\end{equation}
+The initial state is $(0,0,0,0)$, and a root is inserted precisely when the
+corresponding bit of $m$ is set. For every mask with $k=11$, $a=0$, and $c=0$,
+the checker requires $m\in\mathcal L_b$.
+The scan is evaluated by \texttt{native\_decide}. An ordinary Lean induction
+proves that this recurrence equals the coefficients of~\eqref{eq:reverse},
+and another proves that a successful range scan checks each integer in its range.
+Together these establish
+\begin{equation}\label{eq:list-complete}
+ Z\in\mathcal P_b\ \Longrightarrow\ m(Z)\in\mathcal L_b.
+\end{equation}
+The proof needs this inclusion only; it does not assume that external list
+generation is correct or require the converse inclusion as a hypothesis.
+
+There are $2774$ entries in the lists. Their sizes and the resulting triple
+counts are shown in Table~\ref{tab:counts}. The coefficient parameter $b$ is
+not the second power sum: when the sum is zero,
+$b=-\frac12\sum z^2=11\sum z^2$ in $\F$.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrrr}
+\toprule
+Coefficient parameter $b$ & Number of groups & Entries per group & Triples in all groups\\
+\midrule
+$0$ & 1 & 134 & $2\,406\,104$\\
+Nonzero quadratic residue & 11 & 115 & $16\,729\,625$\\
+Quadratic nonresidue & 11 & 125 & $21\,484\,375$\\
+\midrule
+Total & 23 & $2774$ entries & $40\,620\,104$\\
+\bottomrule
+\end{tabular}
+\caption{Candidate list sizes and exhaustive coverage checks. Since $2$ is a
+square modulo $23$, $b$ and $2b$ have the same group size.}
+\label{tab:counts}
+\end{table}
+
+\subsection{The executable coverage check and its semantics}
+Masks in this computation are $23$-bit vectors. If $M$ is a mask,
+$\operatorname{rot}_t(M)$ denotes cyclic left rotation by $t$ places;
+it represents the set obtained by adding $t$ modulo $23$.
+Let $H(S)$ be the mask whose bit at $r$ is the bit of $S$ at $2r$.
+It represents $S/2$, since $2^{-1}=12$ in $\F$.
+For each $d\in\{0,\ldots,22\}$, form the mask
+\begin{equation}\label{eq:bitcheck}
+ U_d=\overline R\ \mathbin{\&}\ 
+       \overline{\operatorname{rot}_d(C)}\ \mathbin{\&}\ 
+       \overline{\operatorname{rot}_{12d}(H(S))}.
+\end{equation}
+Complements are taken within $23$ bits.
+Its bit at $r$ is set exactly when
+$r\notin R$, $r-d\notin C$, and $2r-d\notin S$.
+Therefore $d\in\Delta(R,C,S)$ if and only if $U_d\ne0$.
+
+The executable checker loops over all $23$ values of $b$, every column mask
+in $\mathcal L_b$, every sum mask in $\mathcal L_{2b}$, and every row mask in
+$\mathcal L_b$. For each triple it counts the $23$ indices with $U_d\ne0$
+and requires the count to be at least $12$. A closed
+\texttt{native\_decide} theorem certifies that every check returns true.
+Rotations and allowed-row masks are cached outside the inner row loop.
+All groups are checked; the Lean proof uses no scaling reduction.
+
+The file \texttt{CoverSemantics.lean} proves that this executable count is
+exactly the cardinality of~\eqref{eq:delta}. In particular, the proof relates
+bit-vector rotations, residue subtraction, set encoding, and finite-set
+cardinality. Applying this bridge to the successful exhaustive check and
+using~\eqref{eq:list-complete} proves Lemma~\ref{lem:finite}.
+
+\subsection{The contradiction}
+For the hypothesized eleven-queen set, $\card D=11$ and~\eqref{eq:subset} give
+$\card{\Delta(R,C,S)}\leq11$. Lemma~\ref{lem:finite} gives the opposite bound
+$\card{\Delta(R,C,S)}\geq12$. This excludes eleven independent dominating
+queens. With Proposition~\ref{prop:ten}, every independent dominating set has
+at least twelve queens.
+
+\section{A twelve-queen construction}\label{sec:upper}
+All coordinates below are zero indexed and interpreted modulo $23$.
+Take the twelve squares
+\begin{equation}\label{eq:witness}
+\begin{split}
+ &(2,13),(3,9),(6,3),(7,22),(9,2),(11,5),\\
+ &(12,8),(15,18),(16,14),(18,7),(20,4),(21,0).
+\end{split}
+\end{equation}
+There are twelve distinct rows, columns, sum labels, and difference labels,
+so the queens are independent. Direct evaluation on the $529$ squares shows
+that they dominate the board. Both assertions, and cardinality twelve, are
+proved by ordinary \texttt{decide} in \texttt{Upper.lean}; this upper-bound
+proof does not use \texttt{native\_decide}. Combined with the lower bound,
+it proves Theorem~\ref{thm:main}.
+
+\section{Lean implementation and trust boundary}\label{sec:lean}
+\subsection{Formal statements and dependency structure}
+The implementation uses Lean $4.34.0$~\cite{Lean} and mathlib~\cite{mathlib} source revision
+\begin{center}
+\texttt{5ed2965256430c3649e86755f9576b54eca72435}.
+\end{center}
+The proof models the field as \texttt{ZMod 23} and squares as pairs of field
+elements. Its definitions of independence and domination quantify over the
+actual squares and queens, rather than assuming any polynomial equations or
+profile restrictions. The main exact-minimum statement is
+\begin{lstlisting}
+theorem minimum_is_twelve :
+    (exists s : Finset Square,
+      s.card = 12 /\ Independent s /\ Dominating s) /\
+    (forall s : Finset Square,
+      Independent s -> Dominating s -> 12 <= s.card)
+\end{lstlisting}
+Here the ASCII display gives the logical content of the Unicode source.
+The source also defines the minimum by the infimum of attainable cardinalities
+and proves the equality
+\begin{lstlisting}
+theorem independentDominationNumber_eq_twelve :
+    independentDominationNumber = 12
+\end{lstlisting}
+Both the existence and universal lower bound are unconditional within the
+declared Lean/native computation trust boundary.
+
+The modules have the following roles.
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{.33\linewidth}>{\raggedright\arraybackslash}p{.59\linewidth}}
+\toprule
+Module(s) & Content\\
+\midrule
+\texttt{Basic} & Chessboard definitions, translations, centering, projection injectivity.\\
+\texttt{RootCoefficients} & Root products, reversal, coefficient identities and tails.\\
+\texttt{Grid}, \texttt{Lift} & Grid coefficient extraction, substitution and degree bounds.\\
+\texttt{Kernels}, \texttt{Expansion}, \texttt{Equations} & Exact expansions, error-degree bounds, seven coefficients and linear elimination.\\
+\texttt{Geometry}, \texttt{LowerTen} & Projection identities, coefficient restrictions, and exclusion of at most ten queens.\\
+\texttt{ProfileData}, \texttt{ProfileEnumeration}, \texttt{Masks}, \texttt{ProfileBridge} & Explicit lists, exhaustive completeness, mask semantics and coefficient recurrence.\\
+\texttt{CoverCheck}, \texttt{CoverSemantics} & Exhaustive triple check and its interpretation as $\card\Delta$.\\
+\texttt{Upper}, \texttt{Main} & Twelve-queen witness and the complete minimum theorem.\\
+\bottomrule
+\end{tabular}
+\caption{Structure of the accompanying Lean source. Module names are relative
+to the namespace \texttt{ToroidalQueens23}.}
+\end{table}
+
+\subsection{Native computation is explicitly trusted}
+The final build passed with no \texttt{sorry}, \texttt{admit}, or manually
+declared axiom in the proof source. The algebraic identities, geometric
+bridges, recurrences, and range-scan soundness are ordinary Lean proofs.
+Exactly three closed calculations use \texttt{native\_decide}:
+\begin{enumerate}
+\item \texttt{powerSum\_table}: the power sums for $0\leq n<89$;
+\item \texttt{all\_profile\_masks\_checked}: completeness over all $2^{23}$ masks;
+\item \texttt{all\_profile\_covers\_checked}: all $23$ candidate groups and their
+$40\,620\,104$ triples.
+\end{enumerate}
+The axiom report for the final equality includes \texttt{propext},
+\texttt{Classical.choice}, and \texttt{Quot.sound}, together with the three
+generated native computation axioms named in Appendix~\ref{app:audit}.
+There is no \texttt{sorryAx} in that report.
+
+This is a complete Lean-compiled formalization with a native computation
+trust component. It is not claimed to be a proof reduced entirely by the
+Lean kernel using only the three standard axioms. Correctness of the three
+native steps additionally relies on the relevant compiler/runtime and native
+evaluation mechanism. The finite computations are closed Lean programs with
+proved semantic bridges; no Python result or SAT solver status is imported
+as an assumed theorem.
+
+\subsection{Supplementary checks and reproducibility}
+Before the complete formalization, two different implementations checked the
+finite obstruction independently. One enumerated all
+$\binom{23}{11}=1\,352\,078$ eleven-element subsets and accumulated uncovered
+difference labels directly. The other used fixed-weight integer masks and
+vectorized integer rotations. Both checked all $40\,620\,104$ triples; the
+second reported a minimum of $13$ required difference labels, and $15$ in the
+zero-parameter group. These stronger observed minima are supplementary
+results, not the bound certified or needed by the Lean theorem.
+
+Three additional profile SAT instances, for second-moment representatives
+$0,1,22$, yielded LRAT refutations. A checker separate from the solver
+verified all three to the empty clause, totaling $1\,867\,319$ clause additions
+and $139\,363\,759$ positive hint references. These historical certificates and
+their logs are retained. The Lean proof instead checks every coefficient
+group directly and does not formalize or depend on those LRAT certificates.
+A known five-queen construction on the $11\times11$ torus was also used as
+a positive control for the earlier programs.
+
+The source distribution includes the proof modules, exact candidate data,
+toolchain pin, a portable Lake configuration, build/axiom audit, and checksums.
+The manuscript source uses standard LaTeX packages. Rebuilding the formal
+proof with a fresh mathlib environment requires installing the pinned Lean
+toolchain, fetching dependencies, and running \texttt{lake build}. A successful
+build re-evaluates the closed native checks when their modules are rebuilt;
+on the Windows development environment, the coverage computation took about
+$12$ minutes. Timings depend on hardware and are not proof hypotheses.
+The checksums identify the exact tested source, and the build log distinguishes
+newly compiled modules from cached ones. Historical failed development logs
+are preserved separately from the final successful audit.
+
+\section{Limitations and further work}
+The result is a fixed finite instance of independent domination on a torus.
+The covering-polynomial restrictions are necessary conditions; the proof does
+not classify all optimal configurations, prove a general formula in $n$, or
+establish a geometric symmetry of hypothetical critical configurations.
+The current finite obstruction is computational. Replacing it by a short
+structural proof, or replacing native evaluation by compact kernel-checkable
+certificates, would strengthen the proof's explanatory or trust properties.
+
+This manuscript is a preprint draft. The numerical value's literature priority
+has not been established, and no external subject-expert review is claimed.
+The proof and files were prepared with assistance from OpenAI Codex for
+mathematical development, programming, formalization, and writing. Such
+assistance or agreement is not evidence in place of the proofs and executable
+checks specified above.
+
+\appendix
+\section{Exact native axiom audit}\label{app:audit}
+With the common prefix \texttt{ToroidalQueens23.} omitted, the generated native
+names appearing in the final equality's axiom report are
+\begin{lstlisting}
+all_profile_covers_checked._native.native_decide.ax_1_1
+all_profile_masks_checked._native.native_decide.ax_1_1
+powerSum_table._native.native_decide.ax_1_1
+\end{lstlisting}
+The remaining names are \texttt{propext}, \texttt{Classical.choice}, and
+\texttt{Quot.sound}. The upper bound alone has only those three standard names.
+The source bundle includes the literal report rather than treating this prose
+as its proof certificate.
+
+\section{Coefficient formula for reproducing the kernel tables}
+For nonnegative integers $a,b,c,d$, the coefficient of $x^iy^j$ in
+$x^ay^b(x+y)^c(x-y)^d$ is
+\[
+ \sum_{\substack{0\leq k\leq c,\ 0\leq\ell\leq d\\
+                 a+c+d-k-\ell=i,\ b+k+\ell=j}}
+     \binom ck\binom d\ell(-1)^\ell.
+\]
+Apply this formula with the exponent tuples
+\[
+ (11-j,11,11,11),\ (11,11-j,11,11),\
+ (11,11,11-j,11),\ (11,11,11,11-j),
+\]
+for $j=2,3$, and reduce the resulting integers modulo $23$.
+The Lean source proves the full integer-coefficient expansions by ring
+normalization before extracting the table entries, so the generator that
+emits these expressions is not a trusted oracle.
+
+\begin{thebibliography}{9}
+\raggedright
+\bibitem{BMC2001}
+A.~P. Burger, C.~M. Mynhardt, and E.~J. Cockayne,
+\emph{Queens graphs for chessboards on the torus},
+Australasian Journal of Combinatorics \textbf{24} (2001), 231--246.
+\url{https://ajc.maths.uq.edu.au/pdf/24/ocr-ajc-v24-p231.pdf}.
+
+\bibitem{Mynhardt2003}
+C.~M. Mynhardt,
+\emph{Upper bounds for the domination numbers of toroidal queens graphs},
+Discussiones Mathematicae Graph Theory \textbf{23} (2003), 163--175.
+\href{https://doi.org/10.7151/dmgt.1193}{doi:10.7151/dmgt.1193}.
+
+\bibitem{OEIS}
+The OEIS Foundation Inc.,
+\emph{A279404: Independent domination number for queens' graph on an
+$n\times n$ toroidal board}, accessed November 8, 2026.
+\url{https://oeis.org/A279404}.
+
+\bibitem{Lean}
+The Lean development team,
+\emph{Lean 4}, version 4.34.0.
+\url{https://github.com/leanprover/lean4}.
+
+\bibitem{mathlib}
+The mathlib community,
+\emph{mathlib4}, source revision
+\texttt{5ed2965256430c3649e86755f9576b54eca72435}.
+\url{https://github.com/leanprover-community/mathlib4}.
+\end{thebibliography}
+\end{document}

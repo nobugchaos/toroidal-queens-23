@@ -1,0 +1,35 @@
+ℹ [1189/1190] Built ToroidalQueens23.ProfileEnumeration (119s)
+info: ToroidalQueens23/ProfileEnumeration.lean:72:0: 'ToroidalQueens23.all_profile_masks_checked' depends on axioms: [propext,
+ Quot.sound,
+ all_profile_masks_checked._native.native_decide.ax_1_1]
+info: ToroidalQueens23/ProfileEnumeration.lean:73:0: 'ToroidalQueens23.profile_mask_complete' depends on axioms: [propext,
+ Quot.sound,
+ all_profile_masks_checked._native.native_decide.ax_1_1]
+✖ [1190/1190] Building ToroidalQueens23.Masks (11s)
+trace: .> LEAN_PATH=<WORKSPACE>\legendre-research\formal\mathlib\.lake\build\lib\lean;<WORKSPACE>\legendre-research\formal\mathlib\.lake\packages\plausible\.lake\build\lib\lean;<WORKSPACE>\legendre-research\formal\mathlib\.lake\packages\LeanSearchClient\.lake\build\lib\lean;<WORKSPACE>\legendre-research\formal\mathlib\.lake\packages\importGraph\.lake\build\lib\lean;<WORKSPACE>\legendre-research\formal\mathlib\.lake\packages\proofwidgets\.lake\build\lib\lean;<WORKSPACE>\legendre-research\formal\mathlib\.lake\packages\aesop\.lake\build\lib\lean;<WORKSPACE>\legendre-research\formal\mathlib\.lake\packages\Qq\.lake\build\lib\lean;<WORKSPACE>\legendre-research\formal\mathlib\.lake\packages\batteries\.lake\build\lib\lean;<WORKSPACE>\legendre-research\formal\mathlib\.lake\packages\Cli\.lake\build\lib\lean;<WORKSPACE>\open-problems\toroidal-queens-23\formal\.lake\build\lib\lean <USER_HOME>\.elan\toolchains\leanprover--lean4---v4.34.0\bin\lean.exe <WORKSPACE>\open-problems\toroidal-queens-23\formal\ToroidalQueens23\Masks.lean -o <WORKSPACE>\open-problems\toroidal-queens-23\formal\.lake\build\lib\lean\ToroidalQueens23\Masks.olean -i <WORKSPACE>\open-problems\toroidal-queens-23\formal\.lake\build\lib\lean\ToroidalQueens23\Masks.ilean -c <WORKSPACE>\open-problems\toroidal-queens-23\formal\.lake\build\ir\ToroidalQueens23\Masks.c --setup <WORKSPACE>\open-problems\toroidal-queens-23\formal\.lake\build\ir\ToroidalQueens23\Masks.setup.json --json
+error: ToroidalQueens23/Masks.lean:15:66: failed to synthesize instance of type class
+  Decidable (i ∈ s)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+error: ToroidalQueens23/Masks.lean:18:53: Type mismatch
+  vectorOfFn_bit ?m.8 x
+has type
+  (vectorOfFn ?m.8).getLsbD ↑x = ?m.8 x
+but is expected to have type
+  (encodeMask s).getLsbD (ZMod.val x) = decide (x ∈ s)
+error: ToroidalQueens23/Masks.lean:28:14: unsolved goals
+case succ
+m n : ℕ
+ih : countBits m n = ∑ i ∈ Finset.range n, if m.testBit i = true then 1 else 0
+⊢ ({x ∈ Finset.range n | m.testBit x = true}.card + if m.testBit n = true then 1 else 0) =
+    {x ∈ Finset.range (n + 1) | m.testBit x = true}.card
+warning: ToroidalQueens23/Masks.lean:28:33: This simp argument is unused:
+  Finset.sum_range_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [countBits, ih]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Some required targets logged failures:
+- ToroidalQueens23.Masks
+error: build failed

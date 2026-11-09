@@ -1,0 +1,9 @@
+{
+  "status": "PASS_EXISTING_PROOF_RECHECK",
+  "source_files_matched": 23,
+  "lean_files_matched_in_delivered_bundle": 19,
+  "fresh_import_and_axiom_query": "PASS",
+  "large_native_enumerations_rerun": false,
+  "scope": "Current source matches the successfully built source and delivered .lean files; fresh import reports exact minimum with the same three native computation axioms. Does not establish literature novelty.",
+  "final_axiom_lists_compared_exactly": true
+}

@@ -1,0 +1,89 @@
+23 x 23 环面皇后独立支配：正确性与文献核查
+核查日期：2026-11-08（Asia/Shanghai）
+性质：既有结果的核查及文档更新，不是新增数学研究轮次。
+
+结论
+1. 既有完整定理 i(Q_23^t)=12 的当前 Lean 源码、交付包源码和成功
+   构建记录相符。新运行 Audit.lean 导入最终库成功；公理列表仍为
+   三个标准公理加三处 native_decide，无 sorryAx。没有重跑大型枚举。
+2. 已获取并阅读全文核对 Mynhardt 2003 的13页论文，补上此前未能
+   阅读这篇关键文献的缺口。它没有给出 i(Q_23^t)=12，也没有给出
+   可以直接代入 n=23 的该独立支配数确值公式。
+3. 本轮查阅范围内未找到先前证明同一确值的文献或公开计算记录。
+   这不是证明全世界不存在先例；不确认历史首次，不声称外部同行评审。
+
+关键2003年全文
+Christina M. Mynhardt, Upper bounds for the domination numbers of toroidal
+queens graphs, Discussiones Mathematicae Graph Theory23(2003),163–175.
+DOI: https://doi.org/10.7151/dmgt.1193
+出版商PDF: https://www.dmgt.uz.zgora.pl/publish/pdf.php?doi=1193
+也从 https://dmgt.uz.zgora.pl/publish/pdf.php?doi=1193 跟随正常重定向取得。
+Crossref元数据给出该出版商地址。本轮成功下载196521字节，PDF13页。
+多个旧镜像403、404，部分出版商请求超时/证书链失败；未关闭证书验证。
+
+逐项核对
+- p.164末段明确本文的新上界针对阶数3k（若干同余类）或2k。
+- p.165 Theorem1/Corollary2/Theorem3处理3n阶；Proposition4处理2n阶。
+- p.166 Table2列4<=n<=16的独立支配数与构造，不列23。
+- Theorem6处理3n阶；Theorem8、9、10处理2n阶，均不是23阶的确值。
+- p.169还明确指出3n阶的界不能自动转为其它阶数的界。
+- p.174 Problem3讨论奇数且不被3整除时的普通支配数gamma，不是给出
+  i(Q_23^t)的值。普通支配、独立支配、最大独立数三个参数分开核对。
+已实际查看p.164、166、174的页面图像，确认公式、表头与页码。
+
+公开数据与近期成果
+https://oeis.org/A279404
+本轮获取页面的表仍为n=1..21，数列末项21对应7；没有列出23。
+页面链接Shmulik Cohen在19、20阶的11枚上界构造，以及Xiong Luhang
+在2026-10-19给出的19阶确值11、20阶确值10的公开证据。
+这些资料不等于23阶的已知确值。OEIS缺项本身也不证明23阶此前未解。
+
+Shmulik Cohen（页面固定的历史提交）
+https://github.com/shmulc8/crack-the-test/tree/dcb886fd614e3f5b996cb74f7e7069747b71d79e/oeis-extensions
+读取其README和A279404目录，声明范围是19、20阶11枚构造，明确没有
+提供新下界证书。默认分支相同旧路径在本次访问404；不据此推断后续
+绝无新结果。只把固定提交中实际可见的内容列为已核对来源。
+
+Xiong Luhang
+https://github.com/Jason-XiongLuHang/toroidal-queens-n19-certification/blob/7c9a9bcb7352007b8fdea78b3354bacac21b0d2c/EVIDENCE.md
+核对页面、仓库元数据和公开release说明。独立支配部分是19阶下界
+及20阶上界。方法学release研究普通环面支配，不能当作23阶独立
+支配数的先例；没有下载其多GB证书，也没有替它重验SAT结果。
+
+其它针对性排除
+William D. Weakley, Toroidal queens graphs over finite fields, AJC57(2013),21–38:
+https://ajc.maths.uq.edu.au/pdf/57/ajc_v57_p021.pdf
+检查摘要、主要定理范围和参考文献；主题是自同构与同构分类，不提供
+这里的23阶独立支配计算。没有把标题里的finite fields当成同一结果。
+
+Joao Paulo Costalonga, Toroidal boards and code covering, arXiv:1510.08413v6:
+https://arxiv.org/html/1510.08413
+它使用只有三个攻击方向的semiqueen及编码覆盖参数；其奇阶下界和
+c(q)公式不能直接当作四方向queen独立支配数的确值。
+
+Mynhardt2003的OpenAlex引用索引返回4条，已查它们的题录、可用正文
+或摘要：2003普通皇后上界论文、2020年上线/2021年书籍版综述章节、2013同构分类论文、
+上述semiqueen论文。该引用索引不保证完整。
+2020年上线/2021年书籍版综述 Domination in Chessboards 的出版商页面是订阅内容，本轮
+只读到摘要及参考文献，没有冒称读过章节全文，也未购买或绕过权限。
+https://doi.org/10.1007/978-3-030-58892-2_12
+
+检索范围
+关键词包含toroidal queens、independent domination、23、12、11、
+23 by23、23x23、A279404(23)、A279404 a(23)、Lean及多种组合；另追踪
+2003论文的出版商地址、引用资料、OEIS原始链接和公开GitHub成果。
+过滤普通棋盘Q_23、半皇后、n枚非攻击皇后计数以及一般环面网格结果。
+搜索引擎及数据库索引可能延迟或漏收，未发表/未索引结果无法排除。
+
+证明核查边界
+proof-recheck.json记录23个既有源码/配置摘要一致，交付包中19个Lean
+文件一致，fresh-axiom-audit.log为本轮实际导入记录。没有将源码摘要
+核对冒充重新穷举8388608个掩码和40620104个三元组。
+这属于机器证明范围的内部复核，不是外部专家审稿。
+
+对论文的影响
+仅修正文献说明：不再说2003全文尚未获取，而准确写出其范围。
+数学定理、17个Lean库模块、有限数据与原有验证结果不变。
+仍不写first、new record、首次解决等优先权声明。
+修改前论文、源包、复现包和相关审计文件保存在before-literature-update/。
+未向作者、期刊、OEIS或arXiv发送消息、投稿或修改公开资料。

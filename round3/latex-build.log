@@ -1,0 +1,10 @@
+note: Running TeX ...
+Fontconfig error: Cannot load default config file: No such file: (null)
+warning: main.tex:477: Underfull \hbox (badness 1158) in paragraph at lines 473--477
+note: Rerunning TeX because "main.out" changed ...
+warning: main.tex:477: Underfull \hbox (badness 1158) in paragraph at lines 473--477
+note: Running xdvipdfmx ...
+warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.
+note: Writing `tmp/pdfs/toroidal-queens-23-typeset\main.log` (20.49 KiB)
+note: Writing `tmp/pdfs/toroidal-queens-23-typeset\main.pdf` (100.23 KiB)
+note: Skipped writing 2 intermediate files (use --keep-intermediates to keep them)

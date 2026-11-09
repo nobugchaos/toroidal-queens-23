@@ -1,0 +1,46 @@
+本轮来源核对记录：2026-11-07 至 2026-11-08，Asia/Shanghai
+
+1. OEIS A279404，Independent domination number for queens' graph on an n X n
+   toroidal board.
+   https://oeis.org/A279404
+   https://oeis.org/A279404/internal
+   实际读到页面版本 #45 Oct 21 2026 04:20:29；数值表列 n=1..21。
+   页面载有 2026-10-19 的 n=19,20 续项和 2026-10-21 的 n=21 续项。
+   注意：表未列 n=23 不等于文献中一定没有确值，更不证明本轮界为新纪录。
+
+2. A.P. Burger, C.M. Mynhardt, E.J. Cockayne,
+   Queens graphs for chessboards on the torus,
+   Australasian Journal of Combinatorics 24 (2001), 231-246.
+   https://ajc.maths.uq.edu.au/pdf/24/ocr-ajc-v24-p231.pdf
+   实际读到全文文本，重点核对四方向模 n 的定义、Proposition 17 的 n/3
+   通用下界、Proposition 22 的 2 倍棋盘构造、Corollary 23 的同余类上界。
+   其中 n=22 的 11 枚构造已由旧定理覆盖，所以没有把 n=22 当成新难题。
+   原文还明确说明：普通棋盘独立支配集不自动成为环面独立支配集。
+
+3. C.M. Mynhardt, Upper bounds for the domination numbers of toroidal queens
+   graphs, Discussiones Mathematicae Graph Theory 23 (2003), 163-175.
+   https://doi.org/10.7151/dmgt.1193
+   https://bibliotekanauki.pl/articles/743395.pdf
+   https://pldml.icm.edu.pl/pldml/element/bwmeta1.element.bwnjournal-article-doi-10_7151_dmgt_1193/c/dmgt.1193.pdf
+   实际取得题录、摘要和引言的搜索索引文本；多个全文地址返回 403。
+   未完整核对其中一般构造是否已蕴含本轮 n=23 的 12 枚上界。
+   因而本轮不宣称这一上界或整个区间具有原创性。
+
+4. Mathlib.Combinatorics.Nullstellensatz，实际读取本地源码中的定理陈述：
+   https://github.com/leanprover-community/mathlib4/blob/5ed2965256430c3649e86755f9576b54eca72435/Mathlib/Combinatorics/Nullstellensatz.lean
+   它收录 Alon 1999 的标准组合零点定理。LOWER_BOUND_PROOF.txt 另写出
+   本轮需要的二维系数提取引理及完整 Lagrange 插值证明，未依赖未读取的
+   新论文或把这个已有标准方法说成本轮原创。
+   本轮没有编译或使用这个 Mathlib 模块，不能把阅读源码称为下界已机验。
+
+5. Taha Rostami, Curtis Bright, Queen Domination by SAT Solving,
+   arXiv:2508.11945v2，2026-07-29。
+   https://arxiv.org/html/2508.11945v2
+   实际读取全文文本，作为有限搜索和可复核证书的研究背景。
+   该论文处理普通棋盘，不能将其数值表直接移到本轮的环面独立变体。
+
+选题和引用范围
+本轮研究的是公开研究领域的具体有限实例，而不是八皇后问题的重新求解。
+查阅上述材料未找到 n=23 的确值来源，但这不是完整的文献排除证明。
+最终只报告自行证明/验算的界和未解决的责任，不宣布填补 OEIS、新纪录、
+已解决公开难题或对外发表。既有 Legendre 项目没有新增数学轮次。

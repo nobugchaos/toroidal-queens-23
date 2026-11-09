@@ -1,0 +1,94 @@
+{
+  "status": "PASS_PDF_QA",
+  "pdf": "<WORKSPACE>\\output\\pdf\\toroidal-queens-23-preprint.pdf",
+  "pages": 9,
+  "author": "Weixin Yu",
+  "title": "The independent domination number of the 23 by 23 toroidal queens graph",
+  "pdf_sha256": "ee157b3b4b77278e798da70403d6e6d08dcea2cff81802611642f56d6c00aa33",
+  "latex_source_sha256": "b1e44ad447ee2da173b8dd5aebce0ba383d6330af909843a1772ac4f28233a58",
+  "characters_per_page": [
+    2222,
+    2358,
+    1855,
+    1626,
+    2506,
+    2543,
+    2340,
+    3550,
+    2057
+  ],
+  "geometry_checks": [
+    {
+      "page": 1,
+      "character_count": 1856,
+      "out_of_page_characters": 0
+    },
+    {
+      "page": 2,
+      "character_count": 1887,
+      "out_of_page_characters": 0
+    },
+    {
+      "page": 3,
+      "character_count": 1471,
+      "out_of_page_characters": 0
+    },
+    {
+      "page": 4,
+      "character_count": 1275,
+      "out_of_page_characters": 0
+    },
+    {
+      "page": 5,
+      "character_count": 1975,
+      "out_of_page_characters": 0
+    },
+    {
+      "page": 6,
+      "character_count": 2073,
+      "out_of_page_characters": 0
+    },
+    {
+      "page": 7,
+      "character_count": 2022,
+      "out_of_page_characters": 0
+    },
+    {
+      "page": 8,
+      "character_count": 3029,
+      "out_of_page_characters": 0
+    },
+    {
+      "page": 9,
+      "character_count": 1769,
+      "out_of_page_characters": 0
+    }
+  ],
+  "unresolved_reference_markers": false,
+  "visual_inspection": {
+    "all_pages_reviewed": true,
+    "pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "method": "All nine updated120dpi page PNGs inspected directly after the literature paragraph edit.",
+    "findings": "No clipping, overlaps, missing glyphs, broken formulas/tables, or unresolved references; updated literature text and author details checked."
+  },
+  "font_embedding_check": {
+    "status": "PASS",
+    "font_count": 18,
+    "method": "All page font descriptor streams inspected with pypdf."
+  },
+  "latex_diagnostics": {
+    "overfull_hboxes": 0,
+    "underfull_hbox": "One mild paragraph diagnostic1158, visually acceptable.",
+    "fontconfig": "Nonfatal default-config diagnostic; all18 fonts embedded and visible."
+  }
+}

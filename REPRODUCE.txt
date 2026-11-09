@@ -1,0 +1,44 @@
+Complete result: i(Q_23^t)=12
+Weixin Yu, Independent Researcher, iweixin1214@gmail.com
+
+paper/main.pdf and paper/main.tex contain the full English preprint.
+formal/ contains the complete Lean proof (17 modules plus root and audit).
+
+For a fresh proof build, install elan/Lean, enter formal/, then run:
+  lake update
+  lake build
+  lake env lean Audit.lean
+The Lean toolchain and mathlib revision are pinned. The exported configuration
+uses Git dependencies instead of the tested workspace's local paths. The .lean
+source is byte-identical to the tested source; a separate clean network build
+of this export is not claimed. Workspace configs are retained under evidence/.
+
+The exact minimum theorem is proved from the chessboard definitions. Its full
+axiom report includes three native_decide computations, which additionally
+trust native compilation/evaluation. There is no sorryAx. Read formal/README.txt
+and round3/final-axiom-audit.log for the exact trust boundary.
+
+round3/formal-verification.json identifies original tested source/evidence.
+Its local Lake config hashes refer to the workspace configuration preserved in
+evidence/. BUNDLE_MANIFEST.json hashes the actual exported files.
+
+Historical files are earlier evidence, not current formalization limitations.
+Their Python/LRAT outputs are not premises of the Lean proof. The three large
+LRAT .gz archives (about340MB combined) are preserved in the original workspace
+but excluded from this compact bundle; their hashes and checked reports are
+included. Rerunning the old LRAT checks requires those archives. They are not
+needed to rebuild the complete Lean theorem.
+The retained masks-resume.log shows the successful119-second profile check
+followed by an error in the then-unfinished Masks module. That module was fixed;
+full-build.log and final-axiom-audit.log are the final successful records.
+
+The paper is an arXiv-style draft, not a submitted article or an arXiv record.
+No external peer review or historical priority is claimed.
+The November8 literature follow-up obtained and checked the full2003 paper.
+Its main constructions concern orders2m and3m; its independent-domination
+table ends at16 and does not determine order23. No earlier proof of the exact
+order23 value was located in the consulted sources. This is a bounded negative
+search result, not a priority certificate. The updated manuscript and the report
+under literature-check/2026-11-08/ reflect that distinction. The source journal
+PDF itself is retained in the workspace for inspection and is not redistributed
+inside this compact source bundle.

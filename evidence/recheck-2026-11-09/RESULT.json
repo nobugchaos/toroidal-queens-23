@@ -1,0 +1,40 @@
+{
+  "status": "PASS_FRESH_REBUILD_SEMANTIC_AND_KERNEL_AUDIT",
+  "report_date": "2026-11-09",
+  "result": "i(Q_23^t)=12",
+  "original_bundle_sha256": "09d66b3653c81f0551fb2ef80beda1445a36001f0b5962cfc9999b6643c6ab77",
+  "original_proof_source_files": 19,
+  "added_semantic_audit_files": 1,
+  "proof_modules_rebuilt": 17,
+  "root_module_rebuilt": true,
+  "build_jobs": 1492,
+  "build_seconds": 982.584,
+  "native_computations_rerun": true,
+  "native_mask_cases": 8388608,
+  "native_cover_triples": 40620104,
+  "semantic_equivalence_checked": true,
+  "kernel_replayed_modules": 18,
+  "dependency_packages_source_compared": 9,
+  "dependency_source_files_compared": 9816,
+  "compiled_dependency_cache_reused": true,
+  "clean_network_bootstrap_claimed": false,
+  "standard_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "additional_native_axioms": [
+    "ToroidalQueens23.powerSum_table._native.native_decide.ax_1_1",
+    "ToroidalQueens23.all_profile_masks_checked._native.native_decide.ax_1_1",
+    "ToroidalQueens23.all_profile_covers_checked._native.native_decide.ax_1_1"
+  ],
+  "sorryAx_present": false,
+  "manual_axioms_present": false,
+  "corrections": "The additional audit file initially needed a recursion setting and unfolding for ordinary decide. The first runner also hit a console encoding issue. Those audit-only issues were fixed; the original distributed proof source was unchanged.",
+  "limits": [
+    "Kernel replay uses the Lean kernel, not an independent checker implementation.",
+    "Compiled dependency objects were reused after dependency source comparison.",
+    "Native compiler/runtime trust remains.",
+    "No external peer review or historical-priority certification."
+  ]
+}

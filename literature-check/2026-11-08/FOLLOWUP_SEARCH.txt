@@ -1,0 +1,65 @@
+23阶环面皇后独立支配数：追加联网检索
+日期：2026-11-08（Asia/Shanghai）
+性质：已有结果的追加文献核查；不新增数学研究轮次，不重跑数学验证。
+
+用户要求
+进一步检索这个具体问题是否已经被别人解决。
+
+结论
+本次公开网络、OEIS原始页面和GitHub检索没有找到先前公开证明
+i(Q_23^t)=12的记录。已查公开资料仍不能确认历史首次，亦不能把
+“未检出先例”写成“全世界此前无人解决”的证据。这个固定规模确值
+可称为候选新结果，先前未解的历史状态仍未确证。
+
+本次实际新增核查
+1. OEIS A279404 正文和 /list 均取得了包括2026-10-21续项的页面：
+   n=19 为11、n=20为10、n=21为7，未列n=23。
+   https://oeis.org/A279404
+   https://oeis.org/A279404/list
+   /b279404.txt 与 /internal 返回了较旧快照（只到18阶），没有
+   将该旧快照覆盖当前主页面。OEIS表缺项不能单独证明数学上未解。
+2. Xiong 仓库当前README与全部公开release说明重新读取：
+   https://github.com/Jason-XiongLuHang/toroidal-queens-n19-certification
+   19阶确值11、20阶确值10。方法学release是普通环面支配研究，
+   不提供23阶独立支配数。未下载或重放其大体积DRAT证书。
+3. 找到此前未列入报告的 jookis/toroidal-queens-lean：
+   https://github.com/jookis/toroidal-queens-lean
+   创建时间2026-11-03，README和相关queens-notes README实际读取。
+   作者Jouko Kines，研究普通n皇后解在环面上的冲突数及冲突图，
+   不是最小独立支配集。不能因同为Lean和toroidal queens而视作先例。
+4. 检索A279404的公开GitHub代码，找到Andy Huchala的OEIS仓库。
+   其A279404目录实际只有A279404.py，是可选择n的Gurobi模型，
+   默认n=8；没有附23阶最优值或下界证书。
+   https://github.com/Ahuchala/OEIS/tree/main/A279404
+   OEIS所链接的Python程序正文也已实际读取。
+5. 2025年的 Queen Puzzles 整数规划论文与2026-07-29修订的
+   Queen Domination by SAT Solving 均读取页面并查找toroid，
+   页面全文检索没有命中。它们使用普通棋盘定义，不能作为本题答案。
+   https://doi.org/10.1287/ited.2024.0122
+   https://arxiv.org/html/2508.11945v2
+6. 2020上线/2021书籍版 Domination in Chessboards 的官方页面再次
+   核对。作者为Jason T. Hedetniemi和Stephen T. Hedetniemi。
+   页面仍为订阅预览，本次只读取摘要与参考文献，没有取得全文。
+   https://doi.org/10.1007/978-3-030-58892-2_12
+7. GitHub全局A279404 issue查询成功返回0；pull request查询返回1条
+   无关软件版本记录。ToroidalQueens23代码名查询无结果。这些索引
+   查询只是补充线索，不是穷尽性证明。
+
+已有文献核查沿用
+2001年基础论文和2003年Mynhardt全文的具体比较见REPORT.txt与
+既有SOURCES.txt/各轮原始来源；本次没有将旧记录冒充新做的全文核查。
+2003年原文现已取得的事实以REPORT.txt为准，早期SOURCES.txt中未能
+取得全文的描述是历史记录。
+
+检索范围
+关键词覆盖toroidal queens、independent domination、23、12、
+n=23、23x23、23 by 23、23×23、twenty-three、A279404、Lean，
+并查看OEIS原链接、近期公开代码和论文、综述参考文献。
+检索不是完整的文献排除证明；未索引、未公开资料及未读订阅章节
+仍无法排除。没有对外联系、投稿、改动公开数据库或声称同行评审。
+
+本地文件影响
+仅追加本报告、工具证据摘录及核心/短状态的文档记录。
+Lean源码、数学数据、论文及交付压缩包未改；本次未运行Lean、SAT、
+枚举、PDF构建或包校验，既有证明状态沿用原记录。
+

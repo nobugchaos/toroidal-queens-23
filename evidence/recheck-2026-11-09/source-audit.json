@@ -1,0 +1,76 @@
+{
+  "status": "PASS_DELIVERED_SOURCE_AUDIT",
+  "bundle": "<WORKSPACE>\\output\\toroidal-queens-23-reproducibility.zip",
+  "bundle_sha256": "09d66b3653c81f0551fb2ef80beda1445a36001f0b5962cfc9999b6643c6ab77",
+  "manifest_files_verified": 71,
+  "proof_source_files": 19,
+  "isolated_project": "<WORKSPACE>\\open-problems\\toroidal-queens-23\\lean-check\\2026-11-08\\project",
+  "initial_project_build_objects": 0,
+  "exact_proof_source_match": {
+    "Audit.lean": true,
+    "ToroidalQueens23.lean": true,
+    "ToroidalQueens23\\Basic.lean": true,
+    "ToroidalQueens23\\CoverCheck.lean": true,
+    "ToroidalQueens23\\CoverSemantics.lean": true,
+    "ToroidalQueens23\\Equations.lean": true,
+    "ToroidalQueens23\\Expansion.lean": true,
+    "ToroidalQueens23\\Geometry.lean": true,
+    "ToroidalQueens23\\Grid.lean": true,
+    "ToroidalQueens23\\Kernels.lean": true,
+    "ToroidalQueens23\\Lift.lean": true,
+    "ToroidalQueens23\\LowerTen.lean": true,
+    "ToroidalQueens23\\Main.lean": true,
+    "ToroidalQueens23\\Masks.lean": true,
+    "ToroidalQueens23\\ProfileBridge.lean": true,
+    "ToroidalQueens23\\ProfileData.lean": true,
+    "ToroidalQueens23\\ProfileEnumeration.lean": true,
+    "ToroidalQueens23\\RootCoefficients.lean": true,
+    "ToroidalQueens23\\Upper.lean": true
+  },
+  "files": {
+    "Audit.lean": "7adb24c3f01e6eaeeaba3de3541ace2eee9f95df814b6af9ea1431f2b6b0d4d1",
+    "README.txt": "c3fe517ad66edfc40cb15802b695092971d389e53f9a4d1ba215ca90470486cd",
+    "ToroidalQueens23.lean": "ddb7c0a3f40fce7e9baf1b13a9443bf87d4e9106259895743ed72a421ee6ab2c",
+    "ToroidalQueens23\\Basic.lean": "acb0ece8c1dc5eb6ab39449729ae08facdd7da12915fb973a8c1a185af45616f",
+    "ToroidalQueens23\\CoverCheck.lean": "5ca03aed3ade58fbdb42fcd3bfdba8958e9ea8fc613046f9dfac8eea35b9af64",
+    "ToroidalQueens23\\CoverSemantics.lean": "91a27a71ff5fcb8a0c8bd79fd2f03f3f76a97e38be63df1d42a7be2e4bb854e2",
+    "ToroidalQueens23\\Equations.lean": "8cabbe67e1032ebf3c780d3098a8d0cba1d492fe2feef54cb6069433aa382add",
+    "ToroidalQueens23\\Expansion.lean": "1ec4c3c4c3d98301812a9d0c41f88e61506b23e6db77cba903dfb617c22d9219",
+    "ToroidalQueens23\\Geometry.lean": "14d637c8f6a734c0737674ce9a8834290eeb8be08765f2c8cac2e62f409067d0",
+    "ToroidalQueens23\\Grid.lean": "fbd452e0375f5efb9c8422e4239256f829fc38be86d56ffab9c3590fd4f71dc4",
+    "ToroidalQueens23\\Kernels.lean": "4f49e2cb62e8bed769c27b69c7ecdfe76b8e42c748d3414cd024a52b4d833d09",
+    "ToroidalQueens23\\Lift.lean": "b03ba779180b852093dcb0bdbd5511b46ab83ea30a3a7d70a2ec3d0831bdbbb6",
+    "ToroidalQueens23\\LowerTen.lean": "1ce9052138449207858b60b467fbe7edeb22287c310d5c1cac35f96565deefdd",
+    "ToroidalQueens23\\Main.lean": "4f26e3aac944d2f3851e132fecc7d632c4e065b00632d09c590978533e77fd4b",
+    "ToroidalQueens23\\Masks.lean": "deab7ad049091b94a338ad63c72f54f82ac28492bcae4328cfc58cfa399d68d5",
+    "ToroidalQueens23\\ProfileBridge.lean": "9e8f3762ae9425b8b730e2fafe20a7d8b73d46188d63d5c558516abd5c40302a",
+    "ToroidalQueens23\\ProfileData.lean": "61acd6e98cf202ab191a80d00d734c05c65e352295237a5d6811ff1e36860e15",
+    "ToroidalQueens23\\ProfileEnumeration.lean": "4e2869290254625f7c2ebd0d7805cb46c6c262c7133b18b431404b42a4cb6ea4",
+    "ToroidalQueens23\\RootCoefficients.lean": "cfa23a95b6899b533a2df33e9ee1d4b4a4dc291353c94e83605972805e77a068",
+    "ToroidalQueens23\\Upper.lean": "4cf67a39be11f6d858fe062619dc1634dd4617a843cf1f7e6509ec13ee852b84",
+    "lakefile.portable.toml": "76b79729050e73692504fbdd0aef74c9ac1e77f551040c2141ea0a3df0c333c9",
+    "lakefile.toml": "76b79729050e73692504fbdd0aef74c9ac1e77f551040c2141ea0a3df0c333c9",
+    "lean-toolchain": "8733782dc070a99b312039cda424f601b80f3be6f6f512627da5ba25adc27632"
+  },
+  "dependency_cache_reused": "<WORKSPACE>\\legendre-research\\formal\\mathlib",
+  "dependency_location_only_changed": true,
+  "clean_network_bootstrap_claimed": false,
+  "forbidden_constructs": [],
+  "native_steps": [
+    [
+      "ToroidalQueens23\\CoverCheck.lean",
+      30,
+      "native_decide"
+    ],
+    [
+      "ToroidalQueens23\\Grid.lean",
+      34,
+      "native_decide"
+    ],
+    [
+      "ToroidalQueens23\\ProfileEnumeration.lean",
+      61,
+      "native_decide"
+    ]
+  ]
+}

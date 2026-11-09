@@ -1,0 +1,17 @@
+**/.lake/
+**/lake-manifest.json
+**/__pycache__/
+*.pyc
+*.olean
+*.ilean
+*.olean.server
+*.olean.private
+*.c.o
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.synctex.gz
+formal/axiom-audit.log
+formal/semantic-audit.log
+.DS_Store
+Thumbs.db

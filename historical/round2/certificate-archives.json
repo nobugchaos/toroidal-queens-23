@@ -1,0 +1,29 @@
+{
+  "status": "ARCHIVED",
+  "certificates": [
+    {
+      "norm": 0,
+      "archive": "profile-norm-0.lrat.gz",
+      "archive_bytes": 127445986,
+      "proof_sha256": "72ede3feb4972b57c00f53fee12341a3f34ef7236bc490d4f186ff53a7af20c7",
+      "lossless_roundtrip_verified": true,
+      "status": "COMPLETE_CHECKED_REFUTATION"
+    },
+    {
+      "norm": 1,
+      "archive": "profile-norm-1.lrat.gz",
+      "archive_bytes": 116453744,
+      "proof_sha256": "83b7b0df7d852cb4aba4a30f16cb870e9f756834d0b38f430d1dfab8a7fd7280",
+      "lossless_roundtrip_verified": true,
+      "status": "COMPLETE_CHECKED_REFUTATION"
+    },
+    {
+      "norm": 22,
+      "archive": "profile-norm-22.lrat.gz",
+      "archive_bytes": 95942150,
+      "proof_sha256": "81e96051f1c3ce29ed4a2b0e3df8b1ee7028f58b929bc6e50cf1b8c5c12d1fbc",
+      "lossless_roundtrip_verified": true,
+      "status": "COMPLETE_CHECKED_REFUTATION"
+    }
+  ]
+}

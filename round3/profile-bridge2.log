@@ -1,0 +1,24 @@
+ℹ [1175/1308] Replayed ToroidalQueens23.ProfileEnumeration
+info: ToroidalQueens23/ProfileEnumeration.lean:72:0: 'ToroidalQueens23.all_profile_masks_checked' depends on axioms: [propext,
+ Quot.sound,
+ all_profile_masks_checked._native.native_decide.ax_1_1]
+info: ToroidalQueens23/ProfileEnumeration.lean:73:0: 'ToroidalQueens23.profile_mask_complete' depends on axioms: [propext,
+ Quot.sound,
+ all_profile_masks_checked._native.native_decide.ax_1_1]
+⚠ [1389/1390] Replayed ToroidalQueens23.RootCoefficients
+warning: ToroidalQueens23/RootCoefficients.lean:90:21: This simp argument is unused:
+  Polynomial.coeff_C_mul_X_pow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [rootTail, h11, h10, h9, h8]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ToroidalQueens23/RootCoefficients.lean:98:19: This simp argument is unused:
+  Polynomial.coeff_C_mul_X_pow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [rootTail, hz, h8n, h9n, h11n]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [1390/1390] Built ToroidalQueens23.ProfileBridge (11s)
+Build completed successfully (1390 jobs).

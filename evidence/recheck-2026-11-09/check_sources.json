@@ -1,0 +1,1 @@
+{"status": "PASS_SOURCE_AND_AXIOM_CHECK", "lean_source_files": 20, "native_steps": [["formal/ToroidalQueens23/CoverCheck.lean", 30], ["formal/ToroidalQueens23/Grid.lean", 34], ["formal/ToroidalQueens23/ProfileEnumeration.lean", 62]], "axiom_lists_checked": [], "scope": "Static source checks and, if supplied, the exact printed axiom lists; does not run Lean or prove the theorem."}

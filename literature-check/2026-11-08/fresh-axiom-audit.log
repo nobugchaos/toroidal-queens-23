@@ -1,0 +1,26 @@
+ToroidalQueens23.minimum_is_twelve :
+  (∃ s, s.card = 12 ∧ ToroidalQueens23.Independent s ∧ ToroidalQueens23.Dominating s) ∧
+    ∀ (s : Finset ToroidalQueens23.Square), ToroidalQueens23.Independent s → ToroidalQueens23.Dominating s → 12 ≤ s.card
+ToroidalQueens23.independentDominationNumber_eq_twelve : ToroidalQueens23.independentDominationNumber = 12
+theorem ToroidalQueens23.minimum_is_twelve : (∃ s,
+    s.card = 12 ∧ ToroidalQueens23.Independent s ∧ ToroidalQueens23.Dominating s) ∧
+  ∀ (s : Finset ToroidalQueens23.Square),
+    ToroidalQueens23.Independent s → ToroidalQueens23.Dominating s → 12 ≤ s.card :=
+⟨ToroidalQueens23.twelve_suffice, ToroidalQueens23.independent_dominating_card_at_least_twelve⟩
+'ToroidalQueens23.minimum_is_twelve' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ ToroidalQueens23.all_profile_covers_checked._native.native_decide.ax_1_1,
+ ToroidalQueens23.all_profile_masks_checked._native.native_decide.ax_1_1,
+ ToroidalQueens23.powerSum_table._native.native_decide.ax_1_1]
+'ToroidalQueens23.independentDominationNumber_eq_twelve' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ ToroidalQueens23.all_profile_covers_checked._native.native_decide.ax_1_1,
+ ToroidalQueens23.all_profile_masks_checked._native.native_decide.ax_1_1,
+ ToroidalQueens23.powerSum_table._native.native_decide.ax_1_1]
+'ToroidalQueens23.twelve_suffice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ToroidalQueens23.dominating_card_at_least_eleven' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ ToroidalQueens23.powerSum_table._native.native_decide.ax_1_1]

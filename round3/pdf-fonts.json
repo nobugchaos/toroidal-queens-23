@@ -1,0 +1,96 @@
+{
+  "status": "PASS_EMBEDDED_FONTS",
+  "font_count": 18,
+  "fonts": {
+    "/IHAIZV+LMRoman17-Regular": {
+      "subtype": "/Type1",
+      "embedded": true,
+      "to_unicode": true
+    },
+    "/BZIVMZ+LMRoman12-Regular": {
+      "subtype": "/Type1",
+      "embedded": true,
+      "to_unicode": true
+    },
+    "/IXFAWU+LMMono12-Regular": {
+      "subtype": "/Type1",
+      "embedded": true,
+      "to_unicode": true
+    },
+    "/TQTHRL+LMRoman10-Bold": {
+      "subtype": "/Type1",
+      "embedded": true,
+      "to_unicode": true
+    },
+    "/YEUUOC+LMRoman10-Regular": {
+      "subtype": "/Type1",
+      "embedded": true,
+      "to_unicode": true
+    },
+    "/AKHCZK+LMRoman10-Regular": {
+      "subtype": "/Type1",
+      "embedded": true,
+      "to_unicode": true
+    },
+    "/VDVGTR+LMMathSymbols10-Regular": {
+      "subtype": "/Type1",
+      "embedded": true,
+      "to_unicode": false
+    },
+    "/CAFSZL+LMMono10-Regular": {
+      "subtype": "/Type1",
+      "embedded": true,
+      "to_unicode": true
+    },
+    "/DDIEWW+LMRoman12-Bold": {
+      "subtype": "/Type1",
+      "embedded": true,
+      "to_unicode": true
+    },
+    "/FKPJSN+LMMathItalic10-Regular": {
+      "subtype": "/Type1",
+      "embedded": true,
+      "to_unicode": true
+    },
+    "/PVTTLK+LMRoman8-Regular": {
+      "subtype": "/Type1",
+      "embedded": true,
+      "to_unicode": true
+    },
+    "/JAGKKY+MSBM10": {
+      "subtype": "/Type1",
+      "embedded": true,
+      "to_unicode": true
+    },
+    "/NOMARO+LMMathSymbols8-Regular": {
+      "subtype": "/Type1",
+      "embedded": true,
+      "to_unicode": false
+    },
+    "/KPXLOM+LMRoman10-Italic": {
+      "subtype": "/Type1",
+      "embedded": true,
+      "to_unicode": true
+    },
+    "/UTACNV+LMMathItalic8-Regular": {
+      "subtype": "/Type1",
+      "embedded": true,
+      "to_unicode": true
+    },
+    "/FZDNHS+LMMathExtension10-Regular": {
+      "subtype": "/Type1",
+      "embedded": true,
+      "to_unicode": true
+    },
+    "/DZGKAF+LMRoman6-Regular": {
+      "subtype": "/Type1",
+      "embedded": true,
+      "to_unicode": true
+    },
+    "/GJMHKB+LMMono9-Regular": {
+      "subtype": "/Type1",
+      "embedded": true,
+      "to_unicode": true
+    }
+  }
+}

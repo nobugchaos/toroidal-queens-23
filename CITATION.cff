@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "Please cite this repository and its accompanying preprint if you use the proof or formalization."
+type: software
+title: "The independent domination number of the 23 by 23 toroidal queens graph"
+authors:
+  - family-names: Yu
+    given-names: Weixin
+    affiliation: Independent Researcher
+    email: iweixin1214@gmail.com
+repository-code: "https://github.com/nobugchaos/toroidal-queens-23"
+url: "https://github.com/nobugchaos/toroidal-queens-23"
+version: 0.1.0
+date-released: 2026-11-09
+abstract: "A computer-assisted proof and Lean 4 formalization that the independent domination number of the 23 by 23 toroidal queens graph is exactly twelve. The full theorem uses three disclosed native computations."

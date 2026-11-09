@@ -1,0 +1,84 @@
+Third round: complete Lean formalization and preprint preparation
+2026-11-08, Asia/Shanghai
+
+AUTHOR METADATA
+Weixin Yu, Independent Researcher, iweixin1214@gmail.com.
+
+COMPLETED MATHEMATICS / FORMALIZATION
+The entire statement i(Q_23^t)=12 has now compiled in Lean 4.34.0 with mathlib
+revision 5ed2965256430c3649e86755f9576b54eca72435.
+  formal/ToroidalQueens23/Main.lean:
+    independent_dominating_card_at_least_twelve
+    minimum_is_twelve
+    independentDominationNumber_eq_twelve
+The starting assumptions are the chessboard definitions only; polynomial
+conditions and profile membership are proved along the dependency chain.
+
+The <=10 proof uses a new formalization-friendly version of the old argument:
+pad all four line-label sets to size 10, use the degree-40 covering polynomial,
+and extract x^20 y^20 with coefficient -252=1 modulo23. The old degree-20
+two-family proof remains valid and is preserved unchanged.
+
+The no11 proof works directly with the second and third coefficients of root
+products. The seven high coefficients give uR=uC, uS=uD, and all third
+coefficients zero. The square-sum identity gives uS=2*uR. This avoids importing
+the older mixed-third-moment bridge as a premise; all needed bridges compile.
+
+FINITE COMPUTATIONS INSIDE LEAN
+all_profile_masks_checked scanned all 8,388,608 masks. Module build:119 s.
+all_profile_covers_checked checked all23 coefficient groups and 40,620,104
+triples. Module build:730 s. Both actually passed.
+Candidate data contain2774 entries; only completeness is needed formally.
+Count/rotation/encoding semantics and state recurrence are ordinary proofs.
+The finite-field power-sum table for exponents0..88 is a third native check.
+
+TRUST AUDIT
+Full library build:PASS,1492 jobs; see full-build.log.
+Separate final Audit.lean import/axiom report:PASS; final-axiom-audit.log.
+No sorryAx in final statements. No sorry/admit/manual axiom in proof source.
+The upper bound has only propext,Classical.choice,Quot.sound.
+The full theorem additionally has three generated native_decide axioms.
+Thus the full result is Lean-compiled with an explicit native compiler/runtime
+trust component, NOT a claim of pure kernel reduction or standard axioms only.
+No Python assertion, solver status, or LRAT certificate is a Lean premise.
+
+DEPENDENCIES
+Compared local dependency .lean/configuration files against all nine retained
+upstream source archives. PASS, zero source differences; dependency-audit.json.
+The mathlib directory is an archive extraction, not a Git checkout. Its source
+revision comes from source-lock.json and archive/source comparisons, not from
+git rev-parse (which was inapplicable).
+
+EVIDENCE AUDIT
+verify_formal_result.py returned PASS_FORMAL_RESULT_AUDIT. This audits already
+completed builds/computations and hashes source/logs; it does not rerun the
+large native checks. formal-verification.json records exact statements/trust,
+source hashes, data counts and tested evidence. Historical development failures
+and logs remain preserved, distinct from final PASS records.
+
+MANUSCRIPT
+paper/main.tex contains the English arXiv-style draft, complete proof, finite
+algorithm, native trust, supplied author metadata and bibliography. PDF
+compilation/layout inspection and final source packaging are still in progress
+at the time this checkpoint was first written. They will be recorded below.
+No novelty, external peer review, general-n result or submission is claimed.
+No Legendre mathematical source or research-history document was changed.
+
+FINAL DOCUMENT/DELIVERY RECORD
+The English preprint was compiled with Tectonic0.15.0 to a9-page PDF.
+The second typesetting pass removed all overfull boxes. One mild underfull
+paragraph warning remained; all9 final page PNGs were inspected directly.
+No clipping, overlap, missing glyphs or broken formula/table was observed.
+Author/email/PDF metadata and references were checked. Structural checks passed
+with zero out-of-page characters on every page; see pdf-qa.json.
+The final proof source is unchanged from the successful Lean/axiom audit.
+The output includes a LaTeX source tarball and compact reproducibility ZIP.
+It excludes the large historical LRAT archives, which remain preserved in the
+workspace and are not dependencies of the complete Lean theorem. The export
+uses a pinned portable Lake config; no separate clean network build is claimed.
+Package source equivalence/checksums are recorded in package-result.json and
+BUNDLE_MANIFEST.json. This final step records document/packaging work, without
+claiming that the large finite computations were rerun or a new round begun.
+No arXiv submission, external message, peer review or priority claim was made.
+
+2026-11-08 follow-up literature/document audit: the complete 2003 paper was obtained and compared; its main constructions apply to orders2m or3m and Table2 ends at16. No determination of order23 appears there. Current Lean import/source/bundle recheck passed with unchanged native axioms; no new exhaustive computation. The manuscript literature paragraph is updated, without a priority claim. See literature-check/2026-11-08/REPORT.txt and conclusions.json. Previous draft artifacts are preserved.

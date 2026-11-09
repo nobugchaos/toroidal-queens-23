@@ -1,0 +1,203 @@
+{
+  "status": "PASS",
+  "claim": "All centered profiles require at least twelve difference lines.",
+  "combinations_checked": 1352078,
+  "profile_counts": [
+    134,
+    125,
+    125,
+    125,
+    125,
+    115,
+    125,
+    115,
+    125,
+    125,
+    115,
+    115,
+    125,
+    125,
+    115,
+    115,
+    125,
+    115,
+    125,
+    115,
+    115,
+    115,
+    115
+  ],
+  "total_triples": 40620104,
+  "stats": [
+    {
+      "norm": 0,
+      "triples": 2406104,
+      "minimum_required_difference_lines": 15
+    },
+    {
+      "norm": 1,
+      "triples": 1953125,
+      "minimum_required_difference_lines": 13
+    },
+    {
+      "norm": 2,
+      "triples": 1953125,
+      "minimum_required_difference_lines": 13
+    },
+    {
+      "norm": 3,
+      "triples": 1953125,
+      "minimum_required_difference_lines": 13
+    },
+    {
+      "norm": 4,
+      "triples": 1953125,
+      "minimum_required_difference_lines": 13
+    },
+    {
+      "norm": 5,
+      "triples": 1520875,
+      "minimum_required_difference_lines": 13
+    },
+    {
+      "norm": 6,
+      "triples": 1953125,
+      "minimum_required_difference_lines": 13
+    },
+    {
+      "norm": 7,
+      "triples": 1520875,
+      "minimum_required_difference_lines": 13
+    },
+    {
+      "norm": 8,
+      "triples": 1953125,
+      "minimum_required_difference_lines": 13
+    },
+    {
+      "norm": 9,
+      "triples": 1953125,
+      "minimum_required_difference_lines": 13
+    },
+    {
+      "norm": 10,
+      "triples": 1520875,
+      "minimum_required_difference_lines": 13
+    },
+    {
+      "norm": 11,
+      "triples": 1520875,
+      "minimum_required_difference_lines": 13
+    },
+    {
+      "norm": 12,
+      "triples": 1953125,
+      "minimum_required_difference_lines": 13
+    },
+    {
+      "norm": 13,
+      "triples": 1953125,
+      "minimum_required_difference_lines": 13
+    },
+    {
+      "norm": 14,
+      "triples": 1520875,
+      "minimum_required_difference_lines": 13
+    },
+    {
+      "norm": 15,
+      "triples": 1520875,
+      "minimum_required_difference_lines": 13
+    },
+    {
+      "norm": 16,
+      "triples": 1953125,
+      "minimum_required_difference_lines": 13
+    },
+    {
+      "norm": 17,
+      "triples": 1520875,
+      "minimum_required_difference_lines": 13
+    },
+    {
+      "norm": 18,
+      "triples": 1953125,
+      "minimum_required_difference_lines": 13
+    },
+    {
+      "norm": 19,
+      "triples": 1520875,
+      "minimum_required_difference_lines": 13
+    },
+    {
+      "norm": 20,
+      "triples": 1520875,
+      "minimum_required_difference_lines": 13
+    },
+    {
+      "norm": 21,
+      "triples": 1520875,
+      "minimum_required_difference_lines": 13
+    },
+    {
+      "norm": 22,
+      "triples": 1520875,
+      "minimum_required_difference_lines": 13
+    }
+  ],
+  "global_minimum_required_difference_lines": 13,
+  "closest_profile": {
+    "norm": 1,
+    "row": 3348685,
+    "col": 3348685,
+    "sum": 1861177,
+    "required_differences": [
+      0,
+      1,
+      4,
+      5,
+      6,
+      9,
+      10,
+      13,
+      14,
+      17,
+      18,
+      19,
+      22
+    ]
+  },
+  "positive_control_p11": {
+    "status": "PASS",
+    "p": 11,
+    "queens": 5,
+    "required_difference_count": 5,
+    "centered_positions": [
+      [
+        7,
+        9
+      ],
+      [
+        9,
+        4
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        2,
+        7
+      ],
+      [
+        4,
+        2
+      ]
+    ]
+  },
+  "seconds": 19.774059772491455,
+  "numpy": "2.5.4",
+  "source_sha256": "66225caff785ebd7f70de9ec345820a341c64e14a2b62edb844fa07038ee0bfc",
+  "profiles_sha256": "93fe93efab559a4b4de8aecb8feeb2d9d938d66781d5ceaa5939e03c18aa298c",
+  "scope": "Finite enumeration only. Analytic moment implication is proved separately."
+}

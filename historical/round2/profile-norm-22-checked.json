@@ -1,0 +1,16 @@
+{
+  "status": "PASS_RUP_REFUTATION",
+  "cnf": "profile-norm-22.cnf",
+  "proof": "profile-norm-22.lrat",
+  "variables": 647,
+  "initial_clauses": 8876,
+  "checked_additions": 551317,
+  "deleted_clause_references": 548248,
+  "positive_hints_checked": 38832256,
+  "empty_clause_id": 560193,
+  "seconds": 35.50814366340637,
+  "cnf_sha256": "737aff22d7a47b5161137208198fd050d92f9318769fb91a27230e387ba075a8",
+  "proof_sha256": "81e96051f1c3ce29ed4a2b0e3df8b1ee7028f58b929bc6e50cf1b8c5c12d1fbc",
+  "checker_sha256": "94fd4877fb8e8d2b880a2789126c51fa9dec595e9d886fd6fff533231c52f6bc",
+  "scope": "Propositional refutation only; profile completeness and moment bridge are separate."
+}

@@ -1,0 +1,1 @@
+{"status": "PASS_WITNESS_CHECK", "board_size": 23, "queens": 12, "attacking_pairs": 0, "covered_cells": 529, "scope": "Finite upper-bound witness only; the lower bound is proved in Lean."}

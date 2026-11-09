@@ -1,0 +1,42 @@
+name = "toroidal_queens_23"
+version = "0.1.0"
+defaultTargets = ["ToroidalQueens23"]
+
+[[require]]
+name = "mathlib"
+path = "../../../legendre-research/formal/mathlib"
+
+[[lean_lib]]
+name = "ToroidalQueens23"
+
+[[require]]
+name = "plausible"
+path = "../../../legendre-research/formal/mathlib/.lake/packages/plausible"
+
+[[require]]
+name = "LeanSearchClient"
+path = "../../../legendre-research/formal/mathlib/.lake/packages/LeanSearchClient"
+
+[[require]]
+name = "importGraph"
+path = "../../../legendre-research/formal/mathlib/.lake/packages/importGraph"
+
+[[require]]
+name = "proofwidgets"
+path = "../../../legendre-research/formal/mathlib/.lake/packages/proofwidgets"
+
+[[require]]
+name = "aesop"
+path = "../../../legendre-research/formal/mathlib/.lake/packages/aesop"
+
+[[require]]
+name = "Qq"
+path = "../../../legendre-research/formal/mathlib/.lake/packages/Qq"
+
+[[require]]
+name = "batteries"
+path = "../../../legendre-research/formal/mathlib/.lake/packages/batteries"
+
+[[require]]
+name = "Cli"
+path = "../../../legendre-research/formal/mathlib/.lake/packages/Cli"

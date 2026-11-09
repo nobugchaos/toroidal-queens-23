@@ -1,0 +1,37 @@
+{
+  "check_date": "2026-11-08",
+  "timezone": "Asia/Shanghai",
+  "mathematical_result": "i(Q_23^t)=12",
+  "existing_lean_proof_recheck": "PASS_EXISTING_PROOF_RECHECK",
+  "fulltext_2003_now_obtained_and_compared": true,
+  "source_pdf": {
+    "file": "Mynhardt-2003-publisher_no_www.pdf",
+    "bytes": 196521,
+    "sha256": "ab2e275d3c70a7b284b57604c8dc343a8c030501eaa56ef40cccf72745cc23a0",
+    "publisher_url": "https://www.dmgt.uz.zgora.pl/publish/pdf.php?doi=1193",
+    "pages": 13
+  },
+  "verified_pages_for_key_scope": [
+    164,
+    165,
+    166,
+    168,
+    169,
+    172,
+    173,
+    174
+  ],
+  "known_same_exact_value_located": false,
+  "historical_priority_confirmed": false,
+  "external_peer_review": false,
+  "large_finite_enumerations_rerun": false,
+  "native_computation_trust_unchanged": true,
+  "remaining_limits": [
+    "Search/index coverage is incomplete.",
+    "2020/2021 subscription survey full chapter was not read.",
+    "Unindexed or unpublished prior results cannot be excluded."
+  ],
+  "paper_change": "Bibliographic scope only; no Lean mathematics/data changes.",
+  "external_messages_sent": false,
+  "arxiv_submitted": false
+}

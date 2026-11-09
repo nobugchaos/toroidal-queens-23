@@ -1,0 +1,108 @@
+{
+  "status": "PASS_FORMAL_RESULT_AUDIT",
+  "date": "2026-11-08",
+  "result": "i(Q_23^t)=12; complete lower bound and upper witness",
+  "lean": "4.34.0",
+  "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+  "proof_module_count": 17,
+  "source_file_count_including_root_and_audit": 19,
+  "native_steps": [
+    {
+      "file": "formal\\ToroidalQueens23\\CoverCheck.lean",
+      "line": 30
+    },
+    {
+      "file": "formal\\ToroidalQueens23\\Grid.lean",
+      "line": 34
+    },
+    {
+      "file": "formal\\ToroidalQueens23\\ProfileEnumeration.lean",
+      "line": 62
+    }
+  ],
+  "final_axioms": {
+    "minimum_is_twelve": [
+      "Classical.choice",
+      "Quot.sound",
+      "ToroidalQueens23.all_profile_covers_checked._native.native_decide.ax_1_1",
+      "ToroidalQueens23.all_profile_masks_checked._native.native_decide.ax_1_1",
+      "ToroidalQueens23.powerSum_table._native.native_decide.ax_1_1",
+      "propext"
+    ],
+    "independentDominationNumber_eq_twelve": [
+      "Classical.choice",
+      "Quot.sound",
+      "ToroidalQueens23.all_profile_covers_checked._native.native_decide.ax_1_1",
+      "ToroidalQueens23.all_profile_masks_checked._native.native_decide.ax_1_1",
+      "ToroidalQueens23.powerSum_table._native.native_decide.ax_1_1",
+      "propext"
+    ],
+    "twelve_suffice": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "candidate_profile_counts_by_root_coefficient": [
+    134,
+    115,
+    115,
+    115,
+    115,
+    125,
+    115,
+    125,
+    115,
+    115,
+    125,
+    125,
+    115,
+    115,
+    125,
+    125,
+    115,
+    125,
+    115,
+    125,
+    125,
+    125,
+    125
+  ],
+  "all_masks_scanned": 8388608,
+  "candidate_entries": 2774,
+  "triples_checked": 40620104,
+  "source_sha256": {
+    "formal\\ToroidalQueens23\\Basic.lean": "acb0ece8c1dc5eb6ab39449729ae08facdd7da12915fb973a8c1a185af45616f",
+    "formal\\ToroidalQueens23\\CoverCheck.lean": "5ca03aed3ade58fbdb42fcd3bfdba8958e9ea8fc613046f9dfac8eea35b9af64",
+    "formal\\ToroidalQueens23\\CoverSemantics.lean": "91a27a71ff5fcb8a0c8bd79fd2f03f3f76a97e38be63df1d42a7be2e4bb854e2",
+    "formal\\ToroidalQueens23\\Equations.lean": "8cabbe67e1032ebf3c780d3098a8d0cba1d492fe2feef54cb6069433aa382add",
+    "formal\\ToroidalQueens23\\Expansion.lean": "1ec4c3c4c3d98301812a9d0c41f88e61506b23e6db77cba903dfb617c22d9219",
+    "formal\\ToroidalQueens23\\Geometry.lean": "14d637c8f6a734c0737674ce9a8834290eeb8be08765f2c8cac2e62f409067d0",
+    "formal\\ToroidalQueens23\\Grid.lean": "fbd452e0375f5efb9c8422e4239256f829fc38be86d56ffab9c3590fd4f71dc4",
+    "formal\\ToroidalQueens23\\Kernels.lean": "4f49e2cb62e8bed769c27b69c7ecdfe76b8e42c748d3414cd024a52b4d833d09",
+    "formal\\ToroidalQueens23\\Lift.lean": "b03ba779180b852093dcb0bdbd5511b46ab83ea30a3a7d70a2ec3d0831bdbbb6",
+    "formal\\ToroidalQueens23\\LowerTen.lean": "1ce9052138449207858b60b467fbe7edeb22287c310d5c1cac35f96565deefdd",
+    "formal\\ToroidalQueens23\\Main.lean": "4f26e3aac944d2f3851e132fecc7d632c4e065b00632d09c590978533e77fd4b",
+    "formal\\ToroidalQueens23\\Masks.lean": "deab7ad049091b94a338ad63c72f54f82ac28492bcae4328cfc58cfa399d68d5",
+    "formal\\ToroidalQueens23\\ProfileBridge.lean": "9e8f3762ae9425b8b730e2fafe20a7d8b73d46188d63d5c558516abd5c40302a",
+    "formal\\ToroidalQueens23\\ProfileData.lean": "61acd6e98cf202ab191a80d00d734c05c65e352295237a5d6811ff1e36860e15",
+    "formal\\ToroidalQueens23\\ProfileEnumeration.lean": "4e2869290254625f7c2ebd0d7805cb46c6c262c7133b18b431404b42a4cb6ea4",
+    "formal\\ToroidalQueens23\\RootCoefficients.lean": "cfa23a95b6899b533a2df33e9ee1d4b4a4dc291353c94e83605972805e77a068",
+    "formal\\ToroidalQueens23\\Upper.lean": "4cf67a39be11f6d858fe062619dc1634dd4617a843cf1f7e6509ec13ee852b84",
+    "formal\\ToroidalQueens23.lean": "ddb7c0a3f40fce7e9baf1b13a9443bf87d4e9106259895743ed72a421ee6ab2c",
+    "formal\\Audit.lean": "7adb24c3f01e6eaeeaba3de3541ace2eee9f95df814b6af9ea1431f2b6b0d4d1",
+    "formal\\lean-toolchain": "8733782dc070a99b312039cda424f601b80f3be6f6f512627da5ba25adc27632",
+    "formal\\lakefile.toml": "bf9c56fb847ee68ab894784650a0e5bb9a4a13d1dda46800a7ee912c7586ca6a",
+    "formal\\lakefile.portable.toml": "76b79729050e73692504fbdd0aef74c9ac1e77f551040c2141ea0a3df0c333c9",
+    "formal\\lake-manifest.json": "ad75d81f38dc2a329b56feee300d561fdd2d60e3b5389c624e45b08122a5cd6b"
+  },
+  "evidence_sha256": {
+    "round3\\full-build.log": "0c6e06f6d1ae54af41361917fbfc4988825dc0fd66cd1ea51726fce290906b73",
+    "round3\\final-axiom-audit.log": "f97fd3522e91a59b4040c31a62201993c57a161193e53ecc27cb0a595235a413",
+    "round3\\dependency-audit.json": "aac77643c83d57c24624e190bdb0e5e3f618889c3765ee164df803c2f7b11409",
+    "round3\\cover-check.log": "34a7e587bc4b5bd07d9e7ae8ba8b5e1f31c7e4def7db4802895d4edd49620379",
+    "round3\\masks-resume.log": "448cf96d35860c0666145061f1cb20c50a27d44dfaeb54a00d9621685e9abfd1"
+  },
+  "scope": "Audits completed build and native results, source, dependency comparison, and manuscript arithmetic. Does not rerun exhaustive checks.",
+  "portable_export": "Proof source is identical; a separate fresh network build of the portable configuration is not claimed."
+}

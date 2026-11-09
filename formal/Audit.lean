@@ -1,0 +1,9 @@
+import ToroidalQueens23
+
+#check ToroidalQueens23.minimum_is_twelve
+#check ToroidalQueens23.independentDominationNumber_eq_twelve
+#print ToroidalQueens23.minimum_is_twelve
+#print axioms ToroidalQueens23.minimum_is_twelve
+#print axioms ToroidalQueens23.independentDominationNumber_eq_twelve
+#print axioms ToroidalQueens23.twelve_suffice
+#print axioms ToroidalQueens23.dominating_card_at_least_eleven

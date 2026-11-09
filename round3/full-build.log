@@ -1,0 +1,530 @@
+⚠ [1387/1492] Replayed ToroidalQueens23.Grid
+warning: ToroidalQueens23/Grid.lean:116:17: This simp argument is unused:
+  heq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [he]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [1462/1492] Replayed ToroidalQueens23.RootCoefficients
+warning: ToroidalQueens23/RootCoefficients.lean:90:21: This simp argument is unused:
+  Polynomial.coeff_C_mul_X_pow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [rootTail, h11, h10, h9, h8]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ToroidalQueens23/RootCoefficients.lean:98:19: This simp argument is unused:
+  Polynomial.coeff_C_mul_X_pow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [rootTail, hz, h8n, h9n, h11n]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [1473/1492] Replayed ToroidalQueens23.Lift
+warning: ToroidalQueens23/Lift.lean:15:38: `Polynomial.eval₂_finset_prod` has been deprecated: Use `Polynomial.eval₂_finsetProd` instead
+warning: ToroidalQueens23/Lift.lean:15:38: This simp argument is unused:
+  Polynomial.eval₂_finset_prod
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [liftPolynomial, rootPolynomial]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [1474/1492] Replayed ToroidalQueens23.Kernels
+warning: ToroidalQueens23/Kernels.lean:25:8: This simp argument is unused:
+  eq_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [exponent_inj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ToroidalQueens23/Kernels.lean:60:13: `MvPolynomial.coeff_add` has been deprecated: Use `AddMonoidAlgebra.coeff_add` instead
+
+Note: The updated constant has a different type:
+  ∀ {R : Type u_1} {M : Type u_4} [inst : Semiring R] (x y : AddMonoidAlgebra R M), (x + y).coeff = x.coeff + y.coeff
+instead of
+  ∀ {R : Type u} {σ : Type u_1} [inst : CommSemiring R] (m : σ →₀ ℕ) (p q : MvPolynomial σ R),
+    (p + q).coeff m = p.coeff m + q.coeff m
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.coeff_add` to `AddMonoidAlgebra.coeff_add x`).
+warning: ToroidalQueens23/Kernels.lean:60:47: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: ToroidalQueens23/Kernels.lean:60:59: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: ToroidalQueens23/Kernels.lean:60:71: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: ToroidalQueens23/Kernels.lean:60:83: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: ToroidalQueens23/Kernels.lean:60:95: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: ToroidalQueens23/Kernels.lean:60:107: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: ToroidalQueens23/Kernels.lean:60:119: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: ToroidalQueens23/Kernels.lean:60:131: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: ToroidalQueens23/Kernels.lean:60:143: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: ToroidalQueens23/Kernels.lean:60:155: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: ToroidalQueens23/Kernels.lean:60:167: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: ToroidalQueens23/Kernels.lean:60:180: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: ToroidalQueens23/Kernels.lean:95:13: `MvPolynomial.coeff_add` has been deprecated: Use `AddMonoidAlgebra.coeff_add` instead
+
+Note: The updated constant has a different type:
+  ∀ {R : Type u_1} {M : Type u_4} [inst : Semiring R] (x y : AddMonoidAlgebra R M), (x + y).coeff = x.coeff + y.coeff
+instead of
+  ∀ {R : Type u} {σ : Type u_1} [inst : CommSemiring R] (m : σ →₀ ℕ) (p q : MvPolynomial σ R),
+    (p + q).coeff m = p.coeff m + q.coeff m
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.coeff_add` to `AddMonoidAlgebra.coeff_add x`).
+warning: ToroidalQueens23/Kernels.lean:130:13: `MvPolynomial.coeff_add` has been deprecated: Use `AddMonoidAlgebra.coeff_add` instead
+
+Note: The updated constant has a different type:
+  ∀ {R : Type u_1} {M : Type u_4} [inst : Semiring R] (x y : AddMonoidAlgebra R M), (x + y).coeff = x.coeff + y.coeff
+instead of
+  ∀ {R : Type u} {σ : Type u_1} [inst : CommSemiring R] (m : σ →₀ ℕ) (p q : MvPolynomial σ R),
+    (p + q).coeff m = p.coeff m + q.coeff m
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.coeff_add` to `AddMonoidAlgebra.coeff_add x`).
+warning: ToroidalQueens23/Kernels.lean:181:13: `MvPolynomial.coeff_add` has been deprecated: Use `AddMonoidAlgebra.coeff_add` instead
+
+Note: The updated constant has a different type:
+  ∀ {R : Type u_1} {M : Type u_4} [inst : Semiring R] (x y : AddMonoidAlgebra R M), (x + y).coeff = x.coeff + y.coeff
+instead of
+  ∀ {R : Type u} {σ : Type u_1} [inst : CommSemiring R] (m : σ →₀ ℕ) (p q : MvPolynomial σ R),
+    (p + q).coeff m = p.coeff m + q.coeff m
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.coeff_add` to `AddMonoidAlgebra.coeff_add x`).
+warning: ToroidalQueens23/Kernels.lean:232:13: `MvPolynomial.coeff_add` has been deprecated: Use `AddMonoidAlgebra.coeff_add` instead
+
+Note: The updated constant has a different type:
+  ∀ {R : Type u_1} {M : Type u_4} [inst : Semiring R] (x y : AddMonoidAlgebra R M), (x + y).coeff = x.coeff + y.coeff
+instead of
+  ∀ {R : Type u} {σ : Type u_1} [inst : CommSemiring R] (m : σ →₀ ℕ) (p q : MvPolynomial σ R),
+    (p + q).coeff m = p.coeff m + q.coeff m
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.coeff_add` to `AddMonoidAlgebra.coeff_add x`).
+warning: ToroidalQueens23/Kernels.lean:267:13: `MvPolynomial.coeff_add` has been deprecated: Use `AddMonoidAlgebra.coeff_add` instead
+
+Note: The updated constant has a different type:
+  ∀ {R : Type u_1} {M : Type u_4} [inst : Semiring R] (x y : AddMonoidAlgebra R M), (x + y).coeff = x.coeff + y.coeff
+instead of
+  ∀ {R : Type u} {σ : Type u_1} [inst : CommSemiring R] (m : σ →₀ ℕ) (p q : MvPolynomial σ R),
+    (p + q).coeff m = p.coeff m + q.coeff m
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.coeff_add` to `AddMonoidAlgebra.coeff_add x`).
+warning: ToroidalQueens23/Kernels.lean:302:13: `MvPolynomial.coeff_add` has been deprecated: Use `AddMonoidAlgebra.coeff_add` instead
+
+Note: The updated constant has a different type:
+  ∀ {R : Type u_1} {M : Type u_4} [inst : Semiring R] (x y : AddMonoidAlgebra R M), (x + y).coeff = x.coeff + y.coeff
+instead of
+  ∀ {R : Type u} {σ : Type u_1} [inst : CommSemiring R] (m : σ →₀ ℕ) (p q : MvPolynomial σ R),
+    (p + q).coeff m = p.coeff m + q.coeff m
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.coeff_add` to `AddMonoidAlgebra.coeff_add x`).
+warning: ToroidalQueens23/Kernels.lean:353:13: `MvPolynomial.coeff_add` has been deprecated: Use `AddMonoidAlgebra.coeff_add` instead
+
+Note: The updated constant has a different type:
+  ∀ {R : Type u_1} {M : Type u_4} [inst : Semiring R] (x y : AddMonoidAlgebra R M), (x + y).coeff = x.coeff + y.coeff
+instead of
+  ∀ {R : Type u} {σ : Type u_1} [inst : CommSemiring R] (m : σ →₀ ℕ) (p q : MvPolynomial σ R),
+    (p + q).coeff m = p.coeff m + q.coeff m
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.coeff_add` to `AddMonoidAlgebra.coeff_add x`).
+warning: ToroidalQueens23/Kernels.lean:404:13: `MvPolynomial.coeff_add` has been deprecated: Use `AddMonoidAlgebra.coeff_add` instead
+
+Note: The updated constant has a different type:
+  ∀ {R : Type u_1} {M : Type u_4} [inst : Semiring R] (x y : AddMonoidAlgebra R M), (x + y).coeff = x.coeff + y.coeff
+instead of
+  ∀ {R : Type u} {σ : Type u_1} [inst : CommSemiring R] (m : σ →₀ ℕ) (p q : MvPolynomial σ R),
+    (p + q).coeff m = p.coeff m + q.coeff m
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.coeff_add` to `AddMonoidAlgebra.coeff_add x`).
+warning: ToroidalQueens23/Kernels.lean:425:13: `MvPolynomial.coeff_add` has been deprecated: Use `AddMonoidAlgebra.coeff_add` instead
+
+Note: The updated constant has a different type:
+  ∀ {R : Type u_1} {M : Type u_4} [inst : Semiring R] (x y : AddMonoidAlgebra R M), (x + y).coeff = x.coeff + y.coeff
+instead of
+  ∀ {R : Type u} {σ : Type u_1} [inst : CommSemiring R] (m : σ →₀ ℕ) (p q : MvPolynomial σ R),
+    (p + q).coeff m = p.coeff m + q.coeff m
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.coeff_add` to `AddMonoidAlgebra.coeff_add x`).
+⚠ [1480/1492] Replayed ToroidalQueens23.Equations
+warning: ToroidalQueens23/Equations.lean:12:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:12:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:16:11: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ToroidalQueens23/Equations.lean:20:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:20:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:24:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:24:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:28:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:28:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:32:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:32:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:36:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:36:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:40:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:40:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:44:11: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ToroidalQueens23/Equations.lean:48:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:48:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:52:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:52:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:56:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:56:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:60:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:60:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:64:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:64:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:68:11: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ToroidalQueens23/Equations.lean:72:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:72:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:76:11: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ToroidalQueens23/Equations.lean:80:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:80:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:84:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:84:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:88:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:88:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:92:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:92:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:96:11: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ToroidalQueens23/Equations.lean:100:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:100:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:104:11: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ToroidalQueens23/Equations.lean:108:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:108:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:112:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:112:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:116:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:116:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:120:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:120:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:124:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:124:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:128:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:128:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:132:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:132:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:136:11: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ToroidalQueens23/Equations.lean:140:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:140:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:144:11: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ToroidalQueens23/Equations.lean:148:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:148:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:152:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:152:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:156:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:156:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:160:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:160:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:164:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:164:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:168:11: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ToroidalQueens23/Equations.lean:172:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:172:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:176:11: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ToroidalQueens23/Equations.lean:180:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:180:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:184:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:184:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:188:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:188:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:192:11: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ToroidalQueens23/Equations.lean:196:11: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ToroidalQueens23/Equations.lean:200:11: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ToroidalQueens23/Equations.lean:204:11: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ToroidalQueens23/Equations.lean:208:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:208:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:212:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:212:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:216:15: Unused tactic linter: `decide` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: ToroidalQueens23/Equations.lean:216:15: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ToroidalQueens23/Equations.lean:220:11: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ToroidalQueens23/Equations.lean:224:11: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ToroidalQueens23/Equations.lean:228:11: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ToroidalQueens23/Equations.lean:232:11: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ToroidalQueens23/Equations.lean:257:13: `MvPolynomial.coeff_add` has been deprecated: Use `AddMonoidAlgebra.coeff_add` instead
+
+Note: The updated constant has a different type:
+  ∀ {R : Type u_1} {M : Type u_4} [inst : Semiring R] (x y : AddMonoidAlgebra R M), (x + y).coeff = x.coeff + y.coeff
+instead of
+  ∀ {R : Type u} {σ : Type u_1} [inst : CommSemiring R] (m : σ →₀ ℕ) (p q : MvPolynomial σ R),
+    (p + q).coeff m = p.coeff m + q.coeff m
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.coeff_add` to `AddMonoidAlgebra.coeff_add x`).
+warning: ToroidalQueens23/Equations.lean:312:58: This simp argument is unused:
+  h01
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [h00, h02, h03, zero_mul, one_mul, add_zero, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ToroidalQueens23/Equations.lean:312:66: This simp argument is unused:
+  h03
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [h00, h01, h02, zero_mul, one_mul, add_zero, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ToroidalQueens23/Equations.lean:312:96: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [h00, h01, h02, h03, zero_mul, one_mul, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ToroidalQueens23/Equations.lean:320:54: This simp argument is unused:
+  h10
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [h11, h12, h13, zero_mul, one_mul, add_zero, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [1482/1492] Replayed ToroidalQueens23.LowerTen
+warning: ToroidalQueens23/LowerTen.lean:51:13: `MvPolynomial.coeff_add` has been deprecated: Use `AddMonoidAlgebra.coeff_add` instead
+
+Note: The updated constant has a different type:
+  ∀ {R : Type u_1} {M : Type u_4} [inst : Semiring R] (x y : AddMonoidAlgebra R M), (x + y).coeff = x.coeff + y.coeff
+instead of
+  ∀ {R : Type u} {σ : Type u_1} [inst : CommSemiring R] (m : σ →₀ ℕ) (p q : MvPolynomial σ R),
+    (p + q).coeff m = p.coeff m + q.coeff m
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.coeff_add` to `AddMonoidAlgebra.coeff_add x`).
+warning: ToroidalQueens23/LowerTen.lean:52:11: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ToroidalQueens23/LowerTen.lean:137:4: `MvPolynomial.coeff_add` has been deprecated: Use `AddMonoidAlgebra.coeff_add` instead
+
+Note: The updated constant has a different type:
+  ∀ {R : Type u_1} {M : Type u_4} [inst : Semiring R] (x y : AddMonoidAlgebra R M), (x + y).coeff = x.coeff + y.coeff
+instead of
+  ∀ {R : Type u} {σ : Type u_1} [inst : CommSemiring R] (m : σ →₀ ℕ) (p q : MvPolynomial σ R),
+    (p + q).coeff m = p.coeff m + q.coeff m
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.coeff_add` to `AddMonoidAlgebra.coeff_add x`).
+ℹ [1484/1492] Replayed ToroidalQueens23.ProfileEnumeration
+info: ToroidalQueens23/ProfileEnumeration.lean:72:0: 'ToroidalQueens23.all_profile_masks_checked' depends on axioms: [propext,
+ Quot.sound,
+ all_profile_masks_checked._native.native_decide.ax_1_1]
+info: ToroidalQueens23/ProfileEnumeration.lean:73:0: 'ToroidalQueens23.profile_mask_complete' depends on axioms: [propext,
+ Quot.sound,
+ all_profile_masks_checked._native.native_decide.ax_1_1]
+ℹ [1486/1492] Replayed ToroidalQueens23.CoverCheck
+info: ToroidalQueens23/CoverCheck.lean:32:0: 'ToroidalQueens23.all_profile_covers_checked' depends on axioms: [propext,
+ Quot.sound,
+ all_profile_covers_checked._native.native_decide.ax_1_1]
+ℹ [1488/1492] Replayed ToroidalQueens23.Upper
+info: ToroidalQueens23/Upper.lean:26:0: 'ToroidalQueens23.twelve_suffice' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [1489/1492] Built ToroidalQueens23.CoverSemantics (13s)
+warning: ToroidalQueens23/CoverSemantics.lean:69:13: This simp argument is unused:
+  Function.comp_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bne_iff_ne, he]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ℹ [1490/1492] Built ToroidalQueens23.Main (16s)
+info: ToroidalQueens23/Main.lean:81:0: 'ToroidalQueens23.dominating_card_at_least_eleven' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ powerSum_table._native.native_decide.ax_1_1]
+info: ToroidalQueens23/Main.lean:82:0: 'ToroidalQueens23.eleven_impossible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ all_profile_covers_checked._native.native_decide.ax_1_1,
+ all_profile_masks_checked._native.native_decide.ax_1_1,
+ powerSum_table._native.native_decide.ax_1_1]
+info: ToroidalQueens23/Main.lean:83:0: 'ToroidalQueens23.minimum_is_twelve' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ all_profile_covers_checked._native.native_decide.ax_1_1,
+ all_profile_masks_checked._native.native_decide.ax_1_1,
+ powerSum_table._native.native_decide.ax_1_1]
+info: ToroidalQueens23/Main.lean:84:0: 'ToroidalQueens23.independentDominationNumber_eq_twelve' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ all_profile_covers_checked._native.native_decide.ax_1_1,
+ all_profile_masks_checked._native.native_decide.ax_1_1,
+ powerSum_table._native.native_decide.ax_1_1]
+✔ [1491/1492] Built ToroidalQueens23 (13s)
+Build completed successfully (1492 jobs).

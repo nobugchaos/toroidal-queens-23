@@ -1,0 +1,12 @@
+ℹ [1176/1191] Replayed ToroidalQueens23.ProfileEnumeration
+info: ToroidalQueens23/ProfileEnumeration.lean:72:0: 'ToroidalQueens23.all_profile_masks_checked' depends on axioms: [propext,
+ Quot.sound,
+ all_profile_masks_checked._native.native_decide.ax_1_1]
+info: ToroidalQueens23/ProfileEnumeration.lean:73:0: 'ToroidalQueens23.profile_mask_complete' depends on axioms: [propext,
+ Quot.sound,
+ all_profile_masks_checked._native.native_decide.ax_1_1]
+ℹ [1191/1191] Built ToroidalQueens23.CoverCheck (730s)
+info: ToroidalQueens23/CoverCheck.lean:32:0: 'ToroidalQueens23.all_profile_covers_checked' depends on axioms: [propext,
+ Quot.sound,
+ all_profile_covers_checked._native.native_decide.ax_1_1]
+Build completed successfully (1191 jobs).

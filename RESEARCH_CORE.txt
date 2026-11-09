@@ -1,0 +1,111 @@
+23 x 23 环面皇后独立支配问题：当前研究入口
+最后更新：2026-11-08，Asia/Shanghai；最新阶段：第三轮
+
+当前结论
+i(Q_23^t)=12 的完整 Lean 形式化已实际编译通过。
+该结果只针对 23 x 23 的固定实例，不是任意 n 的通解。
+完整定理包含原生有限计算的信任：不是“只用标准公理的纯内核归约”。
+英文 arXiv 格式论文已完成：9页PDF已编译并逐页检查；随完整源码和审计记录交付。
+未对外投稿；未认定文献原创性；未宣称已通过外部领域专家审阅。
+
+先读
+ formal/ToroidalQueens23/Main.lean：从棋盘定义出发的完整定理。
+ round3/PROGRESS_CHECKPOINT.txt：第三轮实际工作、证据与信任范围。
+ round3/formal-verification.json：当前源码和验证证据摘要。
+ round3/final-axiom-audit.log：完整定理的真实公理报告。
+ paper/main.tex：完整英文论文、作者信息、方法与可信边界。
+ LIVE_STATUS.txt：短状态。
+
+问题与确值
+棋盘为 F_23 x F_23；攻击方向为行、列、和对角线、差对角线。
+皇后互不攻击，同时占据或攻击全部格子；最少皇后数恰为12。
+Lean 的 Independent、Dominating 与 Covers 明确定义这一问题。
+minimum_is_twelve 同时证明12枚存在以及所有独立支配集至少12枚。
+independentDominationNumber_eq_twelve 证明对应最小值的数值等式。
+
+完整 Lean 证明结构
+17个库模块，Lean4.34.0/mathlib5ed2965256430c3649e86755f9576b54eca72435。
+[标准证明] 平移与中心化、四投影单射、根多项式反转和低阶系数、
+网格系数提取、次数估计、准确展开、系数方程消元、平方和恒等式、
+掩码递推与根系数连接、范围扫描的逻辑完备性、位向量/集合语义。
+[原生计算] 三个闭合的 native_decide：幂和表0..88、全部8388608掩码
+的候选表完整性、全部23组的40620104个三元组覆盖检验。
+[标准证明] 上界12枚构造在 Upper.lean 中用普通decide认证，不依赖
+native_decide。原第一轮 Witness.lean 保留不改。
+
+信任范围
+完整库 lake build 实际成功，1492 jobs；full-build.log。
+另运行 Audit.lean 导入最终库并输出陈述及公理，实际成功。
+最终公理为 propext、Classical.choice、Quot.sound，加三条生成的
+native_decide 公理；无 sorryAx。证明源码无sorry/admit/手写axiom。
+这闭合了此前“完整下界未Lean化”的缺口，但没有移除原生编译器/
+运行时的信任。不能把“已形式化”升级表述为“纯内核标准公理证明”。
+Python输出、SAT标签、LRAT证书都不是最终Lean定理的前提。
+
+第三轮数学与实现改写
+排除<=10枚时把四个投影集合各扩充至10元，使用40次覆盖多项式，
+x^20 y^20系数=-252=1，复用网格提取引理。第二轮原20次两方向
+插值证明仍成立，原文件保留。
+排除11枚时直接使用根多项式二、三阶系数：uR=uC、uS=uD，所有v
+为0；平方和恒等式补出uS=2uR。随后完整枚举给所需差对角线>=12，
+而覆盖要求其包含于11元D。没有假定对称性或把条件当作未证假设。
+候选表共有2774项；Lean只需要并认证完整性，不靠外部表生成的正确性。
+
+来源与依赖审计
+本地mathlib是固定版本的归档解压，不是Git检出。source-lock和保留
+归档记录解析后的提交；本轮实际比较九个包全部.lean源码/配置与归档，
+无差异，dependency-audit.json为PASS。没有伪称git rev-parse给出提交。
+verify_formal_result.py实际返回PASS_FORMAL_RESULT_AUDIT，审计已完成
+构建、公理、源码摘要、候选数及论文矩阵算术；未冒充重跑大型枚举。
+可移植Lake配置与已测源码一同交付；未另声称对导出包做过全新网络构建。
+
+历史与原始证据保留
+第一轮：找到12枚构造，建立11下界，两个全格SAT搜索超时，准确记录
+11<=i<=12与UNKNOWN。原核心和清单位于round2/ROUND1_*。
+第二轮：完整纸面推导加两种全部枚举与三份完整LRAT核验给出确值12；
+当时只有上界和小段消元Lean化，此历史状态在原round2文件中保留。
+第二轮完整纸面证明、两套枚举、340MB左右的压缩LRAT及所有检查日志
+不改动；见round2/PROOF_OF_TWELVE.txt和verification-summary.json。
+三份LRAT累计检查1867319次添加、139363759个正提示。
+第二轮独立枚举观察实际最小需13条（零参数15条）；Lean只认证并使用12。
+第三轮开始前核心和短状态保存在round3/ROUND2_RESEARCH_CORE.txt、
+ROUND2_LIVE_STATUS.txt。开发失败日志保留，不和最终PASS记录混淆。
+完整下界“尚未Lean化”的旧限制已被本轮完整定理取代；旧证据未被否定。
+
+论文与对外状态
+作者：Weixin Yu；Independent Researcher；iweixin1214@gmail.com。
+论文使用英文标准LaTeX，明确有限计算、native信任、历史补充证据和
+文献核对边界。后续文献复核已取得并完整核对2003年全文：其主要定理
+不覆盖23阶确值。本轮仍未找到先前同确值来源，但不确认首次或新纪录。
+不把普通棋盘结果当作环面结果，不用表的缺项作为文献未解的证明。
+未发送对外消息、修改公开表或提交arXiv，未取得arXiv编号。
+既有Legendre数学与研究历史文件未修改；只复用其固定依赖并读取归档。
+
+最终交付与文档记录
+output/pdf/toroidal-queens-23-preprint.pdf：9页英文论文，作者信息核对通过。
+output/toroidal-queens-23-arxiv-source.tar.gz：可编辑LaTeX源包。
+output/toroidal-queens-23-reproducibility.zip：完整Lean源码、候选数据、固定
+依赖版本、验证日志和历史补充记录；不含约340MB旧LRAT，不依赖它们复现主定理。
+PDF逐页渲染检查及元数据/页界核查通过；pdf-qa.json。打包摘要见
+round3/package-result.json（工作区）和包内BUNDLE_MANIFEST.json；可移植源码与已测Lean源码逐字节摘要比对。
+这部分为论文/发布文件整理记录，不声称另跑大型枚举或新增数学研究轮次。
+
+同日文献复核（文档与证据核查，不新增数学轮次）
+literature-check/2026-11-08/REPORT.txt及conclusions.json记录实际查阅范围。
+2003年全文此前无法取得的限制已解除；表2只到16阶，主要新构造处理
+2m、3m阶，不给23阶确值。OEIS获取页面仍只到21阶；近期原始证据为
+19、20阶。针对23阶、12枚、独立支配及Lean的检索未找到先前同确值证明。
+这是有边界的未检出结论，不是全球优先权认证；订阅综述等资料仍有未读。
+当前23个源码/配置摘要及交付包19个Lean源码摘要核对通过；实际重新
+运行Audit.lean导入主定理，公理无变化。未重算大型有限枚举。论文
+只修正文献段落并重新排版；修改前论文、包和核心快照另行保留。
+
+2026-11-09：交付源码的补充复验及公开仓库整理
+从交付ZIP新建隔离目录，重新构建17个证明模块及根模块，1492任务
+通过，三处native_decide实际重算。9个依赖包共9816份源码/配置与
+固定归档一致；复用了依赖编译缓存。新增SemanticAudit.lean证明
+实际棋盘条件等价，并连同17个证明模块通过Lean内核重放。native
+计算公理的信任仍保留。原19份Lean源码未修改，新增审计文件的初期
+检查代码和终端编码问题已修正。记录见evidence/recheck-2026-11-09/。
+公开整理加入中英文README、证明说明、来源摘要、清单校验和CI配置。
+文献首次和外部评审状态不变；GitHub运行结果须查看实际Actions状态。
